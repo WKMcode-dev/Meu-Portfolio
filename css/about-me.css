@@ -1,0 +1,174 @@
+.about-me {
+    margin-top: 2.5em;
+
+    height: 350px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #9499A0;
+    border-radius: 10px;
+    background: #eeeeee0d;
+
+    background-image: url(../imgs/About-Detail.svg);
+    background-repeat: no-repeat;
+    background-position: 90% 70%;
+    
+    padding: 1.2em;
+}
+
+/* span do topo */
+.about-me .about-top {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #222327;
+    border-bottom: 1px solid #9499A0;
+    border-left: 1px solid #9499A0;
+    border-right: 1px solid #9499A0;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    padding: 2% 5%;
+    font-size: clamp(13px, 2vw, 16px);
+    font-weight: bold;
+    color: #fff;
+}
+
+/* pseudo-elementos do topo */
+.about-me .about-top::before,
+.about-me .about-top::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border-top: 1px solid #9499A0;
+}
+
+/* canto esquerdo */
+.about-me .about-top::before {
+    left: -10px;
+    border-top-right-radius: 10px;
+    border-right: 1px solid #9499A0;
+    box-shadow: 3px -3px 0 0 #222327;
+}
+
+/* canto direito */
+.about-me .about-top::after {
+    right: -10px;
+    border-top-left-radius: 10px;
+    border-left: 1px solid #9499A0;
+    box-shadow: -3px -3px 0 0 #222327;
+}
+
+.about-me p {
+    width: 80%;
+    height: 65%;
+
+    font-weight: 700;
+    margin-top: 2em;
+
+    /* fonte se adapta ao espaço */
+    font-size: clamp(8px, 3vw, 14px);
+    line-height: 1.4;
+
+    word-break: break-word;
+    text-wrap: pretty;
+
+    display: flex;
+    align-items: center;
+    /* centraliza verticalmente */
+    justify-content: center;
+    /* centraliza horizontalmente */
+
+    overflow: hidden;
+    /* evita estourar a caixa */
+}
+
+/* ------------------------------------- */
+
+/* span do fundo */
+.about-me .inverted-bottom {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+
+    width: clamp(81px, 25%, 120px);
+
+    aspect-ratio: 1 / 1;
+
+    background: #212226;
+
+    border-top: 1px solid #9499A0;
+    border-right: 1px solid #9499A0;
+    border-top-right-radius: 11px;
+
+}
+
+.about-me .inverted-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -14.5px;
+
+    width: 14px;
+    height: 14px;
+
+    background: #2c2d30;
+
+    border-bottom-left-radius: 10px;
+    border-left: 1px solid #9499A0;
+    border-bottom: 1px solid #9499A0;
+
+    box-shadow: -3px 3px 0 0 #212226;
+
+}
+
+.about-me .inverted-bottom::before {
+    content: "";
+    position: absolute;
+    top: -14.5px;
+    left: 0;
+
+    width: 14px;
+    height: 14px;
+
+    background: #2c2d30;
+
+    border-bottom-left-radius: 10px;
+    border-left: 1px solid #9499A0;
+    border-bottom: 1px solid #9499A0;
+
+    box-shadow: -3px 3px 0 0 #212226;
+
+}
+
+
+
+
+.about-me button {
+    all: unset;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 80%;
+    height: 80%;
+
+    border-radius: 5px;
+
+    background: url(../imgs/Button-down.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    color: #fff;
+    font-size: clamp(10px, 2vw, 14px);
+    font-weight: bold;
+    cursor: pointer;
+}

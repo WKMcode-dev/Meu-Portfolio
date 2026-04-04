@@ -1,0 +1,10 @@
+.divisoria {
+  margin-top: 2.5em;
+  width: 100%;
+  height: clamp(16px, 4vw, 40px); /* responsivo */
+
+  background-image: url('../imgs/divisoria_mask.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* ou cover, dependendo do design */
+}

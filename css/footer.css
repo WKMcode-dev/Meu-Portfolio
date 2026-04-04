@@ -1,0 +1,20 @@
+.footer {
+    margin-top: 3em;
+    background-color: #2C2D31;
+    /* cor de fundo escura */
+    color: #9499A0;
+    /* cor do texto */
+    text-align: center;
+    /* centraliza o texto */
+    padding: 15px 0;
+    /* espaçamento interno */
+    font-size: 0.9em;
+    /* tamanho da fonte */
+    border-top: 1px solid #444;
+    /* linha separadora no topo */
+}
+
+.footer strong {
+    color: #FF5151;
+    /* destaque para o nome */
+}

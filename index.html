@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="imgs/WKM_CODE_logo.png" type="image/x-icon">
+    <title>Portfólio - Wryell Kenneth</title>
+    <link rel="stylesheet" href="css/snow.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/cta.css">
+    <link rel="stylesheet" href="css/divisoria.css">
+    <link rel="stylesheet" href="css/about-me.css">
+    <link rel="stylesheet" href="css/dna-wave.css">
+    <link rel="stylesheet" href="css/section_cards.css">
+    <link rel="stylesheet" href="css/projects-cards.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="js/snow.js" defer></script>
+    <script src="js/modal.js" defer></script>
+</head>
+
+<body>
+    <canvas id="snow"></canvas>
+
+    <div class="hero">
+        <h1>Olá, <span>Mundo</span>!</h1>
+        <p>I'm <span>Wryell Kenneth</span></p>
+        <p>UX/UI Designer & Desenvolvedor Web Front-End</p>
+    </div>
+
+    <section class="cta">
+        <div class="cta-text">
+            <p>Transformando <br> ideias em realidade</p>
+            <p>Vamos criar algo incrível juntos! Veja mais em meu <br>portfólio.</p>
+        </div>
+
+        <span class="cta_span_inverted_border">
+            <button class="cta-button">
+                <a href="#about-me">Saiba mais</a>
+            </button>
+        </span>
+    </section>
+
+    <div class="divisoria"></div>
+
+    <section id="about-me" class="about-me">
+        <span class="about-top">Sobre mim</span>
+        <p>
+            Desenvolvedor web front-end, Analista e Desenvolvedor de Sistemas. <br>
+            Apaixonado por web design e estilo SCI-FI. Sempre em busca de novas inspirações e aprendizados.<br>
+            Proficiente
+            em HTML, CSS, JS, Bootstrap, Tailwind e muito mais. Adaptável às necessidades dos clientes e das empresas.
+        </p>
+        <span class="inverted-bottom">
+            <a href="#project_section">
+                <button></button>
+            </a>
+        </span>
+
+
+    </section>
+
+    <section class="slider-dna">
+        <div id="dna">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+
+
+    <div id="project_section" class="project_section_title">
+        <h1>Meus Projetos</h1>
+    </div>
+    <section  class="project_section">
+
+        <!-- Card 1 -->
+        <div class="project_card">
+            <div>
+                <h1>WKMcode-dev</h1>
+            </div>
+            <div class="top-content" style="background-image: url(../imgs/Project_Keylogger.png);">
+                <div class="border"></div>
+            </div>
+            <div>
+                <h2>Keyboard_Logger_Discord</h2>
+            </div>
+            <div class="status_container">
+                <span class="status">Dev</span>
+            </div>
+            <div class="icon_container">
+                <div class="icon_1">
+                    <img src="../imgs/Python.svg" alt="Python" class="icon" />
+                </div>
+                <span></span>
+                <div class="icon_2">
+                    <a href="https://github.com/WKMcode-dev/KeyboardLoggerDiscord" target="_blank" class="icon">
+                        <img src="../imgs/Github.svg" alt="GitHub" />
+                    </a>
+                </div>
+                <span></span>
+                <div class="icon_3">
+                    <button class="icon doc-button" data-modal="modal1">
+                        <img src="../imgs/Doc.svg" alt="document">
+                    </button>
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal('modal1')">&times;</span>
+                            <h3>Documentação do Projeto</h3>
+                            <p>Aqui vai o conteúdo da documentação do Keyboard Logger...</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Card 2 -->
+        <div class="project_card">
+            <div>
+                <h1>WKMcode-dev</h1>
+            </div>
+            <div class="top-content" style="background-image: url(../imgs/Cursor_Hub_project.png);">
+                <div class="border"></div>
+            </div>
+            <div>
+                <h2>Cursor_Hub_project</h2>
+            </div>
+            <div class="status_container">
+                <span class="status" style="color: #4DFF91;">Stable</span>
+            </div>
+            <div class="icon_container">
+                <div class="icon_1">
+                    <img src="../imgs/Csharp.svg" alt="C#" class="icon" /> <!-- linguagem diferente -->
+                </div>
+                <span></span>
+                <div class="icon_2">
+                    <a href="https://github.com/WKMcode-dev/Cursor_HUB" target="_blank" class="icon">
+                        <img src="../imgs/Github.svg" alt="GitHub" />
+                    </a>
+                </div>
+                <span></span>
+                <div class="icon_3">
+                    <button class="icon doc-button" data-modal="modal2">
+                        <img src="../imgs/Doc.svg" alt="document">
+                    </button>
+                    <div id="modal2" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal('modal2')">&times;</span>
+                            <h3>Documentação do Projeto</h3>
+                            <p>Aqui vai o conteúdo da documentação do Cursor Hub...</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="project_card">
+            <div>
+                <h1>WKMcode-dev</h1>
+            </div>
+            <div class="top-content" style="background-image: url(../imgs/Ocurrence_System_project.png);">
+                <div class="border"></div>
+            </div>
+            <div>
+                <h2>Ocurrence-System</h2>
+            </div>
+            <div class="status_container">
+                <span class="status" style="color: #51A0FF;">V1.0.2</span>
+            </div>
+            <div class="icon_container">
+                <div class="icon_1">
+                    <img src="../imgs/Laravel.svg" alt="Laravel" class="icon" /> <!-- linguagem diferente -->
+                </div>
+                <span></span>
+                <div class="icon_2">
+                    <a href="https://github.com/WKMcode-dev/occurrence-system" target="_blank" class="icon">
+                        <img src="../imgs/Github.svg" alt="GitHub" />
+                    </a>
+                </div>
+                <span></span>
+                <div class="icon_3">
+                    <button class="icon doc-button" data-modal="modal3">
+                        <img src="../imgs/Doc.svg" alt="document">
+                    </button>
+                    <div id="modal3" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal('modal3')">&times;</span>
+                            <h3>Documentação do Projeto</h3>
+                            <p>Aqui vai o conteúdo da documentação do Ocurrence System...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="footer">
+        <p>&copy; 2026 Todos os direitos reservados | Criado por <strong>WKMcode-dev</strong></p>
+    </section>
+</body>
+</html>
