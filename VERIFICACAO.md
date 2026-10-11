@@ -23,3 +23,7 @@ Nenhuma alteração foi feita no motor do ClickLimit nem nas configurações do 
 
 ## Ajuste de efeitos solicitado
 Efeitos agora iniciam ativos mesmo com movimento reduzido no sistema. Mantidas pausa manual e pausa das partículas em aba oculta. Validação em DOM simulado: início ativo com preferência de movimento reduzido, pausa e reativação manual.
+
+## Botão encaixado no recorte
+O card de criação recebeu uma abertura inferior real no caminho SVG, medida a partir do botão HTML. Espaçamento de 12px entre peça e recorte, chanfros de 8px e botão projetado 8px para fora da borda. O conteúdo reserva altura para o botão, inclusive com quebra de linha. ResizeObserver acompanha card e botão.
+Validação: sintaxe JavaScript e geometria em memória para larguras 280/320/480/768px; alturas de botão 56px e 80px; abertura na posição esperada e ausência de SVG duplicado. Não houve conferência visual no navegador.

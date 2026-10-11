@@ -18,16 +18,39 @@
     // Coordenadas em pixels da caixa, sem esticar os cantos do desenho.
     const cut = 16, left = Math.min(65, w * .18), right = Math.min(left + 72, w - 50);
     svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+    let bottom = "L " + cut + " " + (h - 1);
+    const dock = panel.querySelector(".puzzle-button");
+    if (dock) {
+      // Mede a peça em relação à área interna do card (inclusive o transform).
+      const cardBox = panel.getBoundingClientRect(), buttonBox = dock.getBoundingClientRect();
+      const x = buttonBox.left - cardBox.left - panel.clientLeft;
+      const y = buttonBox.top - cardBox.top - panel.clientTop;
+      const slotLeft = Math.max(cut + 10, x - 12);
+      const slotRight = Math.min(w - cut - 10, x + buttonBox.width + 12);
+      const slotTop = Math.max(28, Math.min(h - 24, y - 12));
+      const bevel = 8;
+      bottom = "L " + (slotRight + bevel) + " " + (h - 1) +
+        " L " + slotRight + " " + (h - 1 - bevel) +
+        " L " + slotRight + " " + (slotTop + bevel) +
+        " L " + (slotRight - bevel) + " " + slotTop +
+        " L " + (slotLeft + bevel) + " " + slotTop +
+        " L " + slotLeft + " " + (slotTop + bevel) +
+        " L " + slotLeft + " " + (h - 1 - bevel) +
+        " L " + (slotLeft - bevel) + " " + (h - 1) +
+        " L " + cut + " " + (h - 1);
+      // Reserva espaço para o conteúdo mesmo se o texto do botão quebrar linha.
+      panel.style.setProperty("--dock-height", buttonBox.height + "px");
+    }
     svg.querySelector("path").setAttribute("d",
       "M " + cut + " 1 L " + left + " 1 L " + (left + 8) + " 7 L " + (right - 8) + " 7 L " + right + " 1 " +
       "L " + (w - cut) + " 1 L " + (w - 1) + " " + cut + " L " + (w - 1) + " " + (h - cut) + " " +
-      "L " + (w - cut) + " " + (h - 1) + " L " + cut + " " + (h - 1) + " L 1 " + (h - cut) + " L 1 " + cut + " Z");
+      "L " + (w - cut) + " " + (h - 1) + " " + bottom + " L 1 " + (h - cut) + " L 1 " + cut + " Z");
     panel.classList.add("framed");
   }
   panels.forEach(drawFrame);
   if ("ResizeObserver" in window) {
-    const observer = new ResizeObserver(entries => entries.forEach(entry => drawFrame(entry.target)));
-    panels.forEach(panel => observer.observe(panel));
+    const observer = new ResizeObserver(entries => entries.forEach(entry => drawFrame(entry.target.closest(".panel"))));
+    panels.forEach(panel => { observer.observe(panel); const dock=panel.querySelector(".puzzle-button"); if(dock) observer.observe(dock); });
   } else {
     window.addEventListener("resize", () => panels.forEach(drawFrame), {passive:true});
   }
