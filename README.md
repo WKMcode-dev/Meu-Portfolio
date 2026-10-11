@@ -22,7 +22,7 @@ Os outros CSS/JS antigos permanecem como referência, mas index.html carrega ape
 - Links e botões separados; não há botão dentro de link ou link dentro de botão.
 - Detalhes em dialog nativo: Escape, botão de fechar, fechamento por fundo e retorno de foco.
 - Links externos com noopener/noreferrer.
-- Efeitos pausáveis, movimento reduzido respeitado, partículas limitadas e pausadas em aba oculta.
+- Efeitos pausáveis, ativos por padrão independentemente da preferência de movimento reduzido do sistema, partículas limitadas e pausadas em aba oculta.
 - O código não inventa endereço de e-mail, telefone, métricas ou documentação de projetos.
 
 ## Como personalizar

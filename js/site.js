@@ -65,12 +65,11 @@
   const dna = document.querySelector(".dna");
   if(dna) for(let i=0;i<24;i++){const bar=document.createElement("i");bar.style.setProperty("--i",i);dna.append(bar);}
 
-  // Partículas leves: pausam em aba oculta e respeitam movimento reduzido.
+  // Efeitos ativos por padrão; pausa manual e em aba oculta.
   const canvas = document.getElementById("snow");
   const context = canvas?.getContext("2d");
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   const toggle = document.querySelector(".effects-toggle");
-  let userEffects = !reduced.matches;
+  let userEffects = true;
   let width=0,height=0,particles=[],raf=0,last=0;
   function resize(){
     if(!context)return;
@@ -88,15 +87,14 @@
   }
   function syncEffects(){
     cancelAnimationFrame(raf);raf=0;last=0;
-    const enabled=userEffects&&!reduced.matches;
+    const enabled=userEffects;
     document.body.dataset.effects=enabled?"on":"off";
-    if(toggle){toggle.setAttribute("aria-pressed",String(enabled));toggle.textContent=reduced.matches?"Efeitos: reduzidos":enabled?"Efeitos: ativos":"Efeitos: pausados";toggle.disabled=reduced.matches;}
+    if(toggle){toggle.setAttribute("aria-pressed",String(enabled));toggle.textContent=enabled?"Efeitos: ativos":"Efeitos: pausados";toggle.disabled=false;}
     if(context)context.clearRect(0,0,width,height);
     if(context&&enabled&&!document.hidden)raf=requestAnimationFrame(tick);
   }
   if(toggle)toggle.addEventListener("click",()=>{userEffects=!userEffects;syncEffects();});
   document.addEventListener("visibilitychange",syncEffects);
-  reduced.addEventListener("change",syncEffects);
   window.addEventListener("resize",resize,{passive:true});
   resize();syncEffects();
 })();
