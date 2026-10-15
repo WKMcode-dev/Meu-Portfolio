@@ -1,136 +1,608 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfólio de Wryell Kenneth — UX/UI Designer e desenvolvedor web front-end. Projetos, interfaces e experiências digitais com identidade SCI-FI.">
-  <meta name="theme-color" content="#191a1e">
-  <title>Wryell Kenneth — Design & Desenvolvimento</title>
-  <link rel="icon" href="imgs/WKM_CODE_logo.png" type="image/png">
-  <link rel="stylesheet" href="css/styles.css?v=project-shapes-v3">
-  <script src="js/site.js?v=project-shapes-v3" defer></script>
-</head>
-<body>
-  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-  <canvas id="snow" aria-hidden="true"></canvas>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#inicio" aria-label="WKMcode, início">WKM<span>//</span><small>CODE</small></a>
-      <nav aria-label="Navegação principal">
-        <a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#contato">Contato</a>
-      </nav>
-      <button class="effects-toggle" type="button" aria-pressed="true">Efeitos: ativos</button>
-    </div>
-  </header>
-  <main id="conteudo" class="container">
-    <section class="hero-grid" id="inicio" aria-labelledby="hero-title">
-      <div class="panel intro">
-        <div class="panel-meta"><span>01 / IDENTIDADE</span><span class="signal">WEB · DESIGN</span></div>
-        <p class="eyebrow">UX/UI DESIGNER & DESENVOLVEDOR FRONT-END</p>
-        <h1 id="hero-title">Olá,<br><span class="world">Mundo</span><span class="accent">!</span></h1>
-        <p class="intro-name">Eu sou <strong>Wryell Kenneth.</strong></p>
-        <p class="muted intro-description">Interfaces com personalidade.<br>Ideias transformadas em experiências digitais.</p>
-        <div class="actions">
-          <a class="button primary" href="#projetos">Explorar projetos <span aria-hidden="true">↗</span></a>
-          <a class="button secondary" href="https://github.com/WKMcode-dev" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta
+      content="Wryell Kenneth: desenvolvedor full-stack e profissional de TI. Aplicações web e desktop, APIs e ferramentas próprias, com IA no processo de desenvolvimento."
+      data-i18n-content="meta.description"
+      name="description"
+    />
+    <meta content="#191a1e" name="theme-color" />
+    <script src="js/preferences.js?v=1.1.0"></script>
+    <title data-i18n="meta.title">Wryell Kenneth — Full-stack &amp; IA</title>
+    <link href="imgs/WKM_CODE_logo.png" rel="icon" type="image/png" />
+    <link href="css/styles.css?v=1.1.0" rel="stylesheet" />
+    <link href="css/navigation.css?v=1.1.0" rel="stylesheet" />
+    <script defer="" src="js/i18n.js?v=1.1.0"></script>
+    <script defer="" src="js/site.js?v=1.1.0"></script>
+    <script defer="" src="js/navigation.js?v=1.1.0"></script>
+    <script defer src="js/vendor/gsap.min.js"></script>
+    <script defer src="js/vendor/ScrollTrigger.min.js"></script>
+    <script defer src="js/motion.js?v=1.1.0"></script>
+  </head>
+  <body>
+    <div aria-hidden="true" class="reading-progress"></div>
+    <a class="skip-link" data-i18n="skip" href="#conteudo"
+      >Ir para o conteúdo</a
+    >
+    <canvas aria-hidden="true" id="snow"></canvas>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a
+          aria-label="WKMcode, início"
+          class="brand"
+          data-i18n-aria-label="brand.label"
+          href="#inicio"
+          >WKM<span aria-hidden="true" class="brand-slashes">//</span
+          ><small>CODE</small></a
+        >
+        <button
+          aria-controls="site-nav"
+          aria-expanded="false"
+          aria-label="Abrir menu"
+          class="menu-toggle"
+          type="button"
+        >
+          <span aria-hidden="true" class="menu-rails"
+            ><i></i><i></i><i></i></span
+          ><span aria-hidden="true" class="menu-index">// NAV</span>
+        </button>
+        <nav
+          aria-label="Navegação principal"
+          class="site-nav"
+          data-i18n-aria-label="nav.label"
+          id="site-nav"
+        >
+          <a
+            aria-label="Sobre"
+            data-i18n="nav.about"
+            data-i18n-aria-label="nav.about"
+            href="#sobre"
+            >Sobre</a
+          ><a
+            aria-label="Projetos"
+            data-i18n="nav.projects"
+            data-i18n-aria-label="nav.projects"
+            href="#projetos"
+            >Projetos</a
+          ><a
+            aria-label="Contato"
+            data-i18n="nav.contact"
+            data-i18n-aria-label="nav.contact"
+            href="#contato"
+            >Contato</a
+          ><button
+            aria-haspopup="dialog"
+            aria-label="Configurações"
+            class="settings-open"
+            data-i18n="nav.settings"
+            data-i18n-aria-label="nav.settings"
+            type="button"
+          >
+            Configurações
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main class="container" id="conteudo">
+      <section aria-labelledby="hero-title" class="hero-grid" id="inicio">
+        <div class="panel intro">
+          <div class="panel-meta">
+            <span data-i18n="identity">01 / IDENTIDADE</span
+            ><span class="signal" data-i18n="signal">WEB · DESKTOP · IA</span>
+          </div>
+          <p class="eyebrow" data-i18n="role">
+            DESENVOLVEDOR FULL-STACK / IA NO PROCESSO
+          </p>
+          <h1 id="hero-title">
+            <span data-i18n="hero.first">Ideias em</span><br /><span
+              class="world"
+              data-i18n="hero.last"
+              >sistemas</span
+            ><span class="accent">.</span>
+          </h1>
+          <p class="intro-name">
+            <span data-i18n="hero.name">Eu sou</span>
+            <strong>Wryell Kenneth.</strong>
+          </p>
+          <p class="muted intro-description" data-i18n="hero.description">
+            Crio aplicações web e desktop que conectam interfaces, APIs e dados.
+            Uso IA para acelerar o desenvolvimento, com atenção à arquitetura,
+            aos testes e à experiência de quem usa.
+          </p>
+          <div class="actions">
+            <a class="button primary" data-i18n="hero.explore" href="#projetos"
+              >Explorar projetos ↗</a
+            >
+            <a
+              class="button secondary"
+              href="https://github.com/WKMcode-dev"
+              rel="noopener noreferrer"
+              target="_blank"
+              >GitHub <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="intro-footer">
+            <span data-i18n="hero.stack"
+              >TYPESCRIPT / REACT / NODE.JS / RUST</span
+            ><span aria-hidden="true" class="hashes">/////</span>
+          </div>
         </div>
-        <div class="intro-footer"><span>HTML / CSS / JAVASCRIPT</span><span class="hashes" aria-hidden="true">/////</span></div>
-      </div>
-      <aside class="panel cta puzzle-card" aria-labelledby="cta-title">
-        <div class="panel-meta"><span>02 / CRIAÇÃO</span><span aria-hidden="true">↗</span></div>
-        <img class="cta-art" src="imgs/cta_background.svg" alt="" width="234" height="235">
-        <p class="eyebrow">DO CONCEITO À INTERFACE</p>
-        <h2 id="cta-title">Transformando<br>ideias em<br><span class="accent">realidade.</span></h2>
-        <p class="muted">Web design, desenvolvimento e um olhar para os detalhes que fazem a diferença.</p>
-        <div class="puzzle-slot"><a class="button puzzle-button" href="#sobre">Conheça meu trabalho <span aria-hidden="true">↓</span></a></div>
-        <div class="cta-mark" aria-hidden="true"><span></span><span></span><span></span></div>
-      </aside>
-    </section>
-
-    <div class="divider" aria-hidden="true"><span></span><img src="imgs/divisoria_mask.svg" alt="" width="268" height="18"><span></span></div>
-
-    <section id="sobre" class="about-section" aria-labelledby="about-title">
-      <div class="section-heading"><p class="eyebrow">03 / SOBRE MIM</p><h2 id="about-title">Design encontra <span class="accent">código.</span></h2></div>
-      <div class="about-grid">
-        <article class="panel about-copy">
-          <p>Sou desenvolvedor web front-end, analista e desenvolvedor de sistemas. Apaixonado por web design e pelo estilo SCI-FI, estou sempre buscando novas inspirações e aprendizados.</p>
-          <p class="muted">Trabalho com HTML, CSS, JavaScript, Bootstrap e Tailwind, adaptando as interfaces às necessidades dos clientes e das empresas.</p>
-          <a class="text-link" href="#projetos">Veja isso na prática <span aria-hidden="true">↓</span></a>
-        </article>
-        <aside class="panel toolkit" aria-labelledby="toolkit-title">
-          <div class="panel-meta"><span>FERRAMENTAS / STACK</span><span aria-hidden="true">+</span></div>
-          <h3 id="toolkit-title">Minha caixa de ferramentas</h3>
-          <ul class="tech-list"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Bootstrap</li><li>Tailwind</li><li>UX/UI</li></ul>
-          <img src="imgs/About-Detail.svg" class="about-art" alt="" loading="lazy" width="116" height="281">
+        <aside aria-labelledby="cta-title" class="panel cta puzzle-card">
+          <div class="panel-meta">
+            <span data-i18n="creation">02 / CONSTRUÇÃO</span
+            ><span aria-hidden="true">↗</span>
+          </div>
+          <img
+            alt=""
+            class="cta-art"
+            height="235"
+            src="imgs/cta_background.svg"
+            width="234"
+          />
+          <p class="eyebrow" data-i18n="cta.eyebrow">
+            DA NECESSIDADE À ENTREGA
+          </p>
+          <h2 id="cta-title">
+            <span data-i18n="cta.first">Conectar.</span><br /><span
+              data-i18n="cta.second"
+              >Construir.</span
+            ><br /><span class="accent" data-i18n="cta.third">Evoluir.</span>
+          </h2>
+          <p class="muted" data-i18n="cta.description">
+            De painéis operacionais a ferramentas de criação: gosto de entender
+            o problema, construir uma solução e melhorar a cada versão.
+          </p>
+          <div class="puzzle-slot">
+            <a class="button puzzle-button" data-i18n="cta.link" href="#sobre"
+              >Conheça meu trabalho ↓</a
+            >
+          </div>
+          <div aria-hidden="true" class="cta-mark">
+            <span></span><span></span><span></span>
+          </div>
         </aside>
+      </section>
+      <div aria-hidden="true" class="divider">
+        <span></span
+        ><img
+          alt=""
+          height="18"
+          src="imgs/divisoria_mask.svg"
+          width="268"
+        /><span></span>
       </div>
-    </section>
-
-    <div class="dna-strip" aria-hidden="true"><span>CRIATIVIDADE</span><div class="dna"></div><span>TECNOLOGIA</span></div>
-
-    <section id="projetos" class="projects-section" aria-labelledby="projects-title">
-      <div class="section-heading heading-row">
-        <div><p class="eyebrow">04 / PROJETOS</p><h2 id="projects-title">Do meu <span class="accent">laboratório.</span></h2></div>
-        <a class="text-link" href="https://github.com/WKMcode-dev?tab=repositories" target="_blank" rel="noopener noreferrer">Todos no GitHub ↗</a>
+      <section aria-labelledby="about-title" class="about-section" id="sobre">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="about.eyebrow">03 / SOBRE MIM</p>
+          <h2 id="about-title">
+            <span data-i18n="about.first">Curiosidade que vira</span>
+            <span class="accent" data-i18n="about.last">solução.</span>
+          </h2>
+        </div>
+        <div class="about-grid">
+          <article class="panel about-copy">
+            <p data-i18n="about.intro">
+              Sou desenvolvedor full-stack e profissional de TI. Minha
+              experiência com suporte, sistemas e redes me aproxima de problemas
+              reais — e é daí que surgem muitas das ferramentas que construo.
+            </p>
+            <p class="muted" data-i18n="about.work">
+              Meu laboratório reúne dashboards com integração de APIs,
+              monitoramento de redes, editores visuais e utilitários desktop.
+              Transito entre interface e backend, cuidando dos dados, da
+              organização do código e da entrega.
+            </p>
+            <p class="muted" data-i18n="about.ai">
+              A IA faz parte do meu processo para explorar ideias, implementar e
+              refatorar com mais agilidade. Eu defino o que a aplicação precisa
+              resolver, reviso o resultado e verifico o comportamento antes de
+              publicar.
+            </p>
+            <a class="text-link" data-i18n="about.link" href="#projetos"
+              >Veja isso na prática ↓</a
+            >
+          </article>
+          <aside aria-labelledby="toolkit-title" class="panel toolkit">
+            <div class="panel-meta">
+              <span data-i18n="toolkit.eyebrow">FERRAMENTAS / STACK</span
+              ><span aria-hidden="true">+</span>
+            </div>
+            <h3 data-i18n="toolkit.title" id="toolkit-title">
+              Do navegador ao sistema.
+            </h3>
+            <ul class="tech-list">
+              <li>TypeScript</li>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>Rust</li>
+              <li>Tauri</li>
+              <li>C++</li>
+              <li>Python</li>
+              <li>SQL</li>
+              <li>Git / GitHub</li>
+            </ul>
+            <p class="muted toolkit-note" data-i18n="toolkit.note">
+              APIs · WebSocket · automação · testes · CI/CD
+            </p>
+            <img
+              alt=""
+              class="about-art"
+              height="281"
+              loading="lazy"
+              src="imgs/About-Detail.svg"
+              width="116"
+            />
+          </aside>
+        </div>
+      </section>
+      <div aria-hidden="true" class="dna-strip">
+        <span data-i18n="dna.first">CURIOSIDADE</span>
+        <div class="dna"></div>
+        <span data-i18n="dna.last">CONSTRUÇÃO</span>
       </div>
-      <div class="projects-grid">
-        <article class="project-card custom-project-card" aria-labelledby="project-ping-title">
-          <div class="project-card-header"><span>P / 01</span><span>WKM / LAB</span></div>
-          <svg class="project-cover" viewBox="311 175 194 146" role="img" aria-labelledby="cover-ping-title">
-            <title id="cover-ping-title">Rede de dispositivos conectados e pulsos de latência</title>
-            <defs><clipPath id="cover-ping-clip"><path d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z"/></clipPath></defs>
-            <image href="imgs/project-ping.webp" x="312" y="176" width="192" height="144" preserveAspectRatio="xMidYMid slice" clip-path="url(#cover-ping-clip)"/>
-            <path d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z" fill="none" stroke="#ff6666" stroke-width="1"/>
-          </svg>
-          <div class="project-content">
-            <div class="project-category"><span>REDE / MONITORAMENTO</span></div>
-            <h3 id="project-ping-title">Painel Ping</h3><p class="muted">Monitoramento de rede, latência e disponibilidade em um painel com mapa de infraestrutura.</p>
-            <div class="project-actions"><a href="https://github.com/WKMcode-dev/Painel-Ping-Network" target="_blank" rel="noopener noreferrer" aria-label="Ver código de Painel Ping">Código</a><button type="button" data-project="ping" aria-haspopup="dialog">Detalhes</button></div>
+      <section
+        aria-labelledby="projects-title"
+        class="projects-section"
+        id="projetos"
+      >
+        <div class="section-heading heading-row">
+          <div>
+            <p class="eyebrow" data-i18n="projects.eyebrow">04 / PROJETOS</p>
+            <h2 id="projects-title">
+              <span data-i18n="projects.first">Do meu</span>
+              <span class="accent" data-i18n="projects.last">laboratório.</span>
+            </h2>
           </div>
-        </article>
-        <article class="project-card custom-project-card" aria-labelledby="project-svg-title">
-          <div class="project-card-header"><span>P / 02</span><span>WKM / LAB</span></div>
-          <svg class="project-cover" viewBox="311 175 194 146" role="img" aria-labelledby="cover-svg-title">
-            <title id="cover-svg-title">Polígono vetorial com pontos de edição em uma grade</title>
-            <defs><clipPath id="cover-svg-clip"><path d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z"/></clipPath></defs>
-            <image href="imgs/project-svg.webp" x="312" y="176" width="192" height="144" preserveAspectRatio="xMidYMid slice" clip-path="url(#cover-svg-clip)"/>
-            <path d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z" fill="none" stroke="#ff6666" stroke-width="1"/>
-          </svg>
-          <div class="project-content">
-            <div class="project-category"><span>TYPESCRIPT / TAURI</span></div>
-            <h3 id="project-svg-title">SVG Generator</h3><p class="muted">Editor visual de vetores com seleção de pontos, código ao vivo e salvamento automático.</p>
-            <div class="project-actions"><a href="https://github.com/WKMcode-dev/SVG-Editor-Generator" target="_blank" rel="noopener noreferrer" aria-label="Ver código de SVG Generator">Código</a><button type="button" data-project="svg" aria-haspopup="dialog">Detalhes</button></div>
-          </div>
-        </article>
-        <article class="project-card custom-project-card" aria-labelledby="project-click-title">
-          <div class="project-card-header"><span>P / 03</span><span>WKM / LAB</span></div>
-          <svg class="project-cover" viewBox="311 175 194 146" role="img" aria-labelledby="cover-click-title">
-            <title id="cover-click-title">Mouse com pulsos luminosos representando cliques</title>
-            <defs><clipPath id="cover-click-clip"><path d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z"/></clipPath></defs>
-            <image href="imgs/project-click.webp" x="312" y="176" width="192" height="144" preserveAspectRatio="xMidYMid slice" clip-path="url(#cover-click-clip)"/>
-            <path d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z" fill="none" stroke="#ff6666" stroke-width="1"/>
-          </svg>
-          <div class="project-content">
-            <div class="project-category"><span>C++ / WINDOWS</span></div>
-            <h3 id="project-click-title">ClickLimit</h3><p class="muted">Laboratório de cliques com velocidade, repetição, posição e atalhos configuráveis.</p>
-            <div class="project-actions"><a href="https://github.com/WKMcode-dev/ClickLimit" target="_blank" rel="noopener noreferrer" aria-label="Ver código de ClickLimit">Código</a><button type="button" data-project="click" aria-haspopup="dialog">Detalhes</button></div>
-          </div>
-        </article>
+          <a
+            class="text-link"
+            data-i18n="projects.all"
+            href="https://github.com/WKMcode-dev?tab=repositories"
+            rel="noopener noreferrer"
+            target="_blank"
+            >Todos no GitHub ↗</a
+          >
+        </div>
+        <div class="projects-grid">
+          <article
+            aria-labelledby="project-ping-title"
+            class="project-card custom-project-card"
+          >
+            <div class="project-card-header">
+              <span>P / 01</span><span>WKM / LAB</span>
+            </div>
+            <svg
+              aria-labelledby="cover-ping-title"
+              class="project-cover"
+              role="img"
+              viewbox="311 175 194 146"
+            >
+              <title data-i18n="ping.cover" id="cover-ping-title">
+                Rede de dispositivos conectados e pulsos de latência
+              </title>
+              <defs>
+                <clippath id="cover-ping-clip">
+                  <path
+                    d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z"
+                  ></path>
+                </clippath>
+              </defs>
+              <image
+                clip-path="url(#cover-ping-clip)"
+                height="144"
+                href="imgs/project-ping.webp"
+                preserveaspectratio="xMidYMid slice"
+                width="192"
+                x="312"
+                y="176"
+              />
+              <path
+                d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z"
+                fill="none"
+                stroke="#ff6666"
+                stroke-width="1"
+              ></path>
+            </svg>
+            <div class="project-content">
+              <div class="project-category">
+                <span data-i18n="ping.category">REDE / MONITORAMENTO</span>
+              </div>
+              <h3 id="project-ping-title">Painel Ping</h3>
+              <p class="muted" data-i18n="ping.summary">
+                Monitoramento de disponibilidade com histórico de incidentes,
+                mapa de infraestrutura e modo TV.
+              </p>
+              <div class="project-actions">
+                <a
+                  aria-label="Ver código de Painel Ping"
+                  data-i18n="project.code"
+                  data-i18n-aria-label="ping.code"
+                  href="https://github.com/WKMcode-dev/Painel-Ping-Network"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >Código</a
+                ><button
+                  aria-haspopup="dialog"
+                  data-i18n="project.details"
+                  data-project="ping"
+                  type="button"
+                >
+                  Detalhes
+                </button>
+              </div>
+            </div>
+          </article>
+          <article
+            aria-labelledby="project-svg-title"
+            class="project-card custom-project-card"
+          >
+            <div class="project-card-header">
+              <span>P / 02</span><span>WKM / LAB</span>
+            </div>
+            <svg
+              aria-labelledby="cover-svg-title"
+              class="project-cover"
+              role="img"
+              viewbox="311 175 194 146"
+            >
+              <title data-i18n="svg.cover" id="cover-svg-title">
+                Polígono vetorial com pontos de edição em uma grade
+              </title>
+              <defs>
+                <clippath id="cover-svg-clip">
+                  <path
+                    d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z"
+                  ></path>
+                </clippath>
+              </defs>
+              <image
+                clip-path="url(#cover-svg-clip)"
+                height="144"
+                href="imgs/project-svg.webp"
+                preserveaspectratio="xMidYMid slice"
+                width="192"
+                x="312"
+                y="176"
+              />
+              <path
+                d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z"
+                fill="none"
+                stroke="#ff6666"
+                stroke-width="1"
+              ></path>
+            </svg>
+            <div class="project-content">
+              <div class="project-category">
+                <span data-i18n="svg.category">TYPESCRIPT / TAURI</span>
+              </div>
+              <h3 id="project-svg-title">SVG Generator</h3>
+              <p class="muted" data-i18n="svg.summary">
+                Criação vetorial com edição de pontos, código ao vivo e
+                salvamento automático, na web e no desktop.
+              </p>
+              <div class="project-actions">
+                <a
+                  aria-label="Ver código de SVG Generator"
+                  data-i18n="project.code"
+                  data-i18n-aria-label="svg.code"
+                  href="https://github.com/WKMcode-dev/SVG-Editor-Generator"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >Código</a
+                ><button
+                  aria-haspopup="dialog"
+                  data-i18n="project.details"
+                  data-project="svg"
+                  type="button"
+                >
+                  Detalhes
+                </button>
+              </div>
+            </div>
+          </article>
+          <article
+            aria-labelledby="project-click-title"
+            class="project-card custom-project-card"
+          >
+            <div class="project-card-header">
+              <span>P / 03</span><span>WKM / LAB</span>
+            </div>
+            <svg
+              aria-labelledby="cover-click-title"
+              class="project-cover"
+              role="img"
+              viewbox="311 175 194 146"
+            >
+              <title data-i18n="click.cover" id="cover-click-title">
+                Mouse com pulsos luminosos representando cliques
+              </title>
+              <defs>
+                <clippath id="cover-click-clip">
+                  <path
+                    d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z"
+                  ></path>
+                </clippath>
+              </defs>
+              <image
+                clip-path="url(#cover-click-clip)"
+                height="144"
+                href="imgs/project-click.webp"
+                preserveaspectratio="xMidYMid slice"
+                width="192"
+                x="312"
+                y="176"
+              />
+              <path
+                d="M312 202 A10 10 0 0 1 322 192 L359 192 A10 10 0 0 0 367 188 L373 180 A10 10 0 0 1 381 176 L494 176 A10 10 0 0 1 504 186 L504 310 A10 10 0 0 1 494 320 L322 320 A10 10 0 0 1 312 310 Z"
+                fill="none"
+                stroke="#ff6666"
+                stroke-width="1"
+              ></path>
+            </svg>
+            <div class="project-content">
+              <div class="project-category">
+                <span data-i18n="click.category">C++ / WINDOWS</span>
+              </div>
+              <h3 id="project-click-title">ClickLimit</h3>
+              <p class="muted" data-i18n="click.summary">
+                Utilitário Windows para configurar velocidade, repetição e
+                posição dos cliques, com atalhos e telemetria.
+              </p>
+              <div class="project-actions">
+                <a
+                  aria-label="Ver código de ClickLimit"
+                  data-i18n="project.code"
+                  data-i18n-aria-label="click.code"
+                  href="https://github.com/WKMcode-dev/ClickLimit"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >Código</a
+                ><button
+                  aria-haspopup="dialog"
+                  data-i18n="project.details"
+                  data-project="click"
+                  type="button"
+                >
+                  Detalhes
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <noscript
+          ><p class="muted" data-i18n="noscript">
+            Ative o JavaScript para usar o menu, as configurações e os detalhes.
+            O conteúdo e os links dos projetos continuam disponíveis.
+          </p></noscript
+        >
+      </section>
+      <section
+        aria-labelledby="contact-title"
+        class="panel contact-panel"
+        id="contato"
+      >
+        <div>
+          <p class="eyebrow" data-i18n="contact.eyebrow">
+            05 / PRÓXIMO PROJETO
+          </p>
+          <h2 id="contact-title">
+            <span data-i18n="contact.first">Uma ideia para</span>
+            <span class="accent" data-i18n="contact.last">tirar do papel?</span>
+          </h2>
+          <p class="muted" data-i18n="contact.description">
+            Conheça o que estou construindo e vamos conversar sobre a próxima
+            solução.
+          </p>
+        </div>
+        <a
+          class="button primary"
+          data-i18n="contact.link"
+          href="https://github.com/WKMcode-dev"
+          rel="noopener noreferrer"
+          target="_blank"
+          >Encontrar WKMcode ↗</a
+        >
+      </section>
+    </main>
+    <footer class="site-footer container">
+      <span>© 2026 WKMcode-dev</span
+      ><span data-i18n="footer">CURIOSIDADE / CÓDIGO / EVOLUÇÃO</span
+      ><a data-i18n="top" href="#inicio">Voltar ao topo ↑</a>
+    </footer>
+    <dialog aria-labelledby="dialog-title" id="project-dialog">
+      <div class="dialog-top">
+        <p class="eyebrow" data-i18n="dialog.eyebrow">ARQUIVO / PROJETO</p>
+        <button
+          aria-label="Fechar detalhes"
+          class="dialog-close"
+          data-i18n-aria-label="dialog.close"
+          type="button"
+        >
+          ×
+        </button>
       </div>
-      <noscript><p class="muted">Os detalhes adicionais usam JavaScript. Os links dos repositórios continuam disponíveis.</p></noscript>
-    </section>
-
-    <section id="contato" class="panel contact-panel" aria-labelledby="contact-title">
-      <div><p class="eyebrow">05 / PRÓXIMO PROJETO</p><h2 id="contact-title">Vamos criar algo <span class="accent">juntos?</span></h2><p class="muted">Conheça meus repositórios e encontre meu perfil no GitHub.</p></div>
-      <a class="button primary" href="https://github.com/WKMcode-dev" target="_blank" rel="noopener noreferrer">Encontrar WKMcode ↗</a>
-    </section>
-  </main>
-  <footer class="site-footer container"><span>© 2026 WKMcode-dev</span><span>DESIGN / CÓDIGO / IDENTIDADE</span><a href="#inicio">Voltar ao topo ↑</a></footer>
-
-  <dialog id="project-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-top"><p class="eyebrow">ARQUIVO / PROJETO</p><button class="dialog-close" type="button" aria-label="Fechar detalhes">×</button></div>
-    <h2 id="dialog-title"></h2><p id="dialog-description" class="muted"></p>
-    <a id="dialog-link" class="button primary" target="_blank" rel="noopener noreferrer">Abrir repositório ↗</a>
-  </dialog>
-</body>
+      <h2 id="dialog-title"></h2>
+      <p class="muted" id="dialog-description"></p>
+      <a
+        class="button primary"
+        data-i18n="dialog.link"
+        id="dialog-link"
+        rel="noopener noreferrer"
+        target="_blank"
+        >Abrir repositório ↗</a
+      >
+    </dialog>
+    <dialog
+      aria-labelledby="settings-title"
+      class="settings-dialog"
+      id="settings-dialog"
+    >
+      <div class="settings-shell">
+        <div class="dialog-top">
+          <p class="eyebrow" data-i18n="settings.eyebrow">
+            SISTEMA / PREFERÊNCIAS
+          </p>
+          <button
+            aria-label="Fechar configurações"
+            class="settings-close dialog-close"
+            data-i18n-aria-label="settings.close"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <h2 data-i18n="nav.settings" id="settings-title">Configurações</h2>
+        <p class="muted" data-i18n="settings.intro">
+          Um espaço do teu jeito. As escolhas ficam salvas neste navegador.
+        </p>
+        <fieldset class="theme-options">
+          <legend data-i18n="settings.theme">Aparência</legend>
+          <label
+            ><input name="theme" type="radio" value="dark" /><span
+              data-i18n="settings.dark"
+              >Escuro</span
+            ><span
+              aria-hidden="true"
+              class="theme-swatch dark-swatch"
+            ></span></label
+          ><label
+            ><input name="theme" type="radio" value="light" /><span
+              data-i18n="settings.light"
+              >Claro</span
+            ><span aria-hidden="true" class="theme-swatch light-swatch"></span
+          ></label>
+        </fieldset>
+        <div class="setting-row language-row">
+          <label data-i18n="settings.language" for="language">Idioma</label
+          ><select id="language">
+            <option lang="pt-BR" value="pt-BR">Português (BR)</option>
+            <option lang="en" value="en">English</option>
+            <option lang="es" value="es">Español</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <div>
+            <label data-i18n="settings.effects" for="effects"
+              >Efeitos visuais</label
+            >
+            <p class="muted" data-i18n="settings.effectsHint" id="effects-hint">
+              Partículas e animações decorativas.
+            </p>
+          </div>
+          <input
+            aria-describedby="effects-hint"
+            id="effects"
+            role="switch"
+            type="checkbox"
+          />
+        </div>
+        <p class="settings-footnote" data-i18n="settings.footnote">
+          As mudanças são aplicadas na hora.
+        </p>
+      </div>
+    </dialog>
+  </body>
 </html>
