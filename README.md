@@ -13,7 +13,7 @@ Não exige instalação nem compilação. Todos os scripts, animações, traduç
 - WKM no vermelho de destaque; inversão do fundo somente nos `//` e nos traços do ícone mobile. O painel de navegação segue as cores do tema. Navegadores sem backdrop-filter recebem uma alternativa sólida legível.
 - Configurações em diálogo nativo: tema claro/escuro, português/inglês/espanhol e efeitos visuais.
 - Preferências salvas somente no armazenamento deste navegador; sem cookies de rastreamento nem serviços externos de tradução.
-- A preferência de movimento reduzido do sistema tem prioridade sobre animações decorativas.
+- A preferência de movimento do sistema define o estado inicial; a escolha explícita em Efeitos visuais prevalece e fica salva.
 - Animações GSAP de entrada, navegação, diálogos, interação e progresso de leitura. A rolagem permanece nativa.
 
 ## Organização
