@@ -4,7 +4,7 @@
   const { gsap, ScrollTrigger } = window;
   gsap.registerPlugin(ScrollTrigger);
   // Máscara gerada com a fonte real: o filtro atua somente nas letras,
-  // deixando o conteúdo da página participar do reflexo prateado.
+  // deixando o conteúdo da página participar do efeito prismático.
   const brandWord = document.querySelector(".brand-word");
   function prepareLogoMask() {
     if (!brandWord) return;
@@ -28,8 +28,8 @@
       if (!Number.isFinite(ascent + descent)) return;
       ctx.fillText("WKM", 0, (height - ascent - descent) / 2 + ascent);
       brandWord.style.setProperty("--brand-mask", `url("${canvas.toDataURL()}")`);
-      brandWord.classList.add("chrome-ready");
-    } catch { /* A logo vermelha e o reflexo CSS continuam disponíveis. */ }
+      brandWord.classList.add("prism-ready");
+    } catch { /* A logo vermelha continua disponível sem a máscara. */ }
   }
   prepareLogoMask();
   document.fonts?.ready.then(prepareLogoMask);
@@ -94,14 +94,6 @@
             scrollTrigger: { trigger: element, start: "top 92%", once: true },
           });
         });
-      // O reflexo percorre as letras conforme o conteúdo passa sob o cabeçalho.
-      gsap.fromTo(".brand-word", { "--chrome-position": "-110%" }, {
-        "--chrome-position": "210%",
-        ease: "none",
-        repeat: 7,
-        yoyo: true,
-        scrollTrigger: { start: 0, end: "max", scrub: 0.35 },
-      });
       gsap.fromTo(
         ".reading-progress",
         { scaleX: 0 },
