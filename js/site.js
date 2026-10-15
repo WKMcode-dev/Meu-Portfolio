@@ -57,10 +57,22 @@
 
   // Uma janela nativa de diálogo oferece Escape e gerenciamento de foco.
   const projects = {
-    cursor: {title:"Cursor Hub", description:"Projeto desktop desenvolvido em C#. Acesse o repositório para consultar o código e a documentação disponível.", url:"https://github.com/WKMcode-dev/Cursor_HUB"},
-    occurrence: {title:"Occurrence System", description:"Sistema de ocorrências desenvolvido com Laravel, apresentado no portfólio original como versão V1.0.2. Consulte o repositório para informações atualizadas.", url:"https://github.com/WKMcode-dev/occurrence-system"},
-    keyboard: {title:"Keyboard Logger Discord", description:"Projeto em Python apresentado no portfólio original como em desenvolvimento. A documentação disponível está no repositório.", url:"https://github.com/WKMcode-dev/KeyboardLoggerDiscord"}
-  };
+    "ping": {
+        "title": "Painel Ping",
+        "description": "Monitoramento de rede, latência e disponibilidade em um painel com mapa de infraestrutura. Consulte o código e as instruções no repositório.",
+        "url": "https://github.com/WKMcode-dev/Painel-Ping-Network"
+    },
+    "svg": {
+        "title": "SVG Generator",
+        "description": "Editor visual de vetores com seleção de pontos, código ao vivo e salvamento automático. Consulte o código e as instruções no repositório.",
+        "url": "https://github.com/WKMcode-dev/SVG-Editor-Generator"
+    },
+    "click": {
+        "title": "ClickLimit",
+        "description": "Laboratório de cliques com velocidade, repetição, posição e atalhos configuráveis. Consulte o código e as instruções no repositório.",
+        "url": "https://github.com/WKMcode-dev/ClickLimit"
+    }
+};
   const dialog = document.getElementById("project-dialog");
   let trigger = null;
   document.querySelectorAll("[data-project]").forEach(button => {
