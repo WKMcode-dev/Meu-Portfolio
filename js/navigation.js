@@ -5,6 +5,33 @@
   const nav = document.getElementById("site-nav");
   const settings = document.getElementById("settings-dialog");
   const mobile = matchMedia("(max-width: 700px)");
+  const frame = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  frame.classList.add("nav-frame");
+  frame.setAttribute("aria-hidden", "true");
+  frame.setAttribute("focusable", "false");
+  const outline = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "path",
+  );
+  frame.append(outline);
+  nav.prepend(frame);
+  function drawNavFrame() {
+    const w = nav.clientWidth,
+      h = nav.clientHeight;
+    if (!w || !h) return;
+    const cut = 14,
+      left = Math.min(85, w * 0.3),
+      right = Math.min(left + 72, w - 35);
+    frame.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    outline.setAttribute(
+      "d",
+      `M${cut} 1 H${left} L${left + 7} 7 H${right - 7} L${right} 1 H${w - cut} L${w - 1} ${cut} V${h - cut} L${w - cut} ${h - 1} H${cut} L1 ${h - cut} V${cut} Z`,
+    );
+    nav.classList.add("has-frame");
+  }
+  const frameObserver = new ResizeObserver(drawNavFrame);
+  frameObserver.observe(nav);
+  frameObserver.observe(nav.querySelector(".nav-content"));
   let opener = null;
   function setMenu(open, focus = false) {
     toggle.setAttribute("aria-expanded", String(open));
@@ -13,6 +40,7 @@
       "aria-label",
       window.PortfolioI18n.t(open ? "nav.close" : "nav.open"),
     );
+    if (open) drawNavFrame();
     if (focus) toggle.focus();
     window.dispatchEvent(
       new CustomEvent("portfolio:menu", { detail: { open } }),
