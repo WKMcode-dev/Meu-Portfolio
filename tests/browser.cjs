@@ -211,6 +211,15 @@ const assert = require("node:assert/strict");
     assert.ok(
       await motionPage.evaluate(() => window.ScrollTrigger.getAll().length > 0),
     );
+    const sheen = () => motionPage.locator(".brand-word").evaluate((el) =>
+      getComputedStyle(el).getPropertyValue("--chrome-position"));
+    const initialSheen = await sheen();
+    await motionPage.evaluate(() => scrollTo(0, 500));
+    await motionPage.waitForFunction((initial) =>
+      getComputedStyle(document.querySelector(".brand-word")).getPropertyValue("--chrome-position") !== initial,
+      initialSheen);
+    await screenshot(motionPage, "wkm-chrome-mobile");
+    await motionPage.evaluate(() => scrollTo(0, 0));
     await motionPage.locator(".menu-toggle").click();
     await motionPage
       .getByRole("button", { name: "Configurações", exact: true })
@@ -229,20 +238,97 @@ const assert = require("node:assert/strict");
       await motionPage.evaluate(() => window.ScrollTrigger.getAll().length > 0),
     );
     await motionPage.emulateMedia({ reducedMotion: "reduce" });
-    await motionPage.waitForFunction(
-      () => document.documentElement.dataset.effects === "off",
-    );
     assert.equal(
       await motionPage.locator("html").getAttribute("data-effects"),
-      "off",
+      "on",
     );
-    assert.equal(
-      await motionPage.evaluate(() => window.ScrollTrigger.getAll().length),
-      0,
+    assert.ok(
+      await motionPage.evaluate(() => window.ScrollTrigger.getAll().length > 0),
     );
     await animated.close();
     console.log(
-      "PASS GSAP loaded, animation cleanup/restart, system motion changes",
+      "PASS GSAP loaded, cleanup/restart and explicit effects override",
+    );
+    const system = await browser.newContext({ reducedMotion: "no-preference" });
+    const systemPage = await system.newPage();
+    await systemPage.goto(url);
+    await systemPage.emulateMedia({ reducedMotion: "reduce" });
+    await systemPage.waitForFunction(
+      () => document.documentElement.dataset.effects === "off",
+    );
+    assert.equal(
+      await systemPage.evaluate(() => window.ScrollTrigger.getAll().length),
+      0,
+    );
+    await system.close();
+    const touch = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      isMobile: true,
+      hasTouch: true,
+      reducedMotion: "reduce",
+    });
+    const touchPage = await touch.newPage();
+    await touchPage.goto(url);
+    assert.equal(
+      await touchPage.locator("html").getAttribute("data-effects"),
+      "off",
+    );
+    await touchPage.locator(".menu-toggle").tap();
+    await touchPage
+      .getByRole("button", { name: "Configurações", exact: true })
+      .tap();
+    await touchPage
+      .getByRole("switch", { name: "Efeitos visuais", exact: true })
+      .tap();
+    assert.equal(
+      await touchPage.locator("html").getAttribute("data-effects"),
+      "on",
+    );
+    assert.ok(
+      await touchPage.evaluate(() => window.ScrollTrigger.getAll().length > 0),
+    );
+    assert.equal(
+      await touchPage
+        .locator(".settings-shell")
+        .evaluate((el) => getComputedStyle(el).clipPath),
+      "none",
+    );
+    assert.equal(
+      await touchPage
+        .locator(".settings-frame path")
+        .getAttribute("d")
+        .then(Boolean),
+      true,
+    );
+    await touchPage
+      .getByRole("button", { name: "Fechar configurações", exact: true })
+      .tap();
+    await touchPage.reload();
+    assert.equal(
+      await touchPage.locator("html").getAttribute("data-effects"),
+      "on",
+    );
+    await touchPage.locator(".menu-toggle").tap();
+    await touchPage.evaluate(() => {
+      const modal = document.getElementById("settings-dialog");
+      window.modalAnimationObserved = false;
+      new MutationObserver(() => { if (parseFloat(getComputedStyle(modal).opacity) < 1) window.modalAnimationObserved = true; }).observe(modal, { attributes: true, attributeFilter: ["style"] });
+    });
+    await touchPage
+      .getByRole("button", { name: "Configurações", exact: true })
+      .tap();
+    await touchPage.waitForFunction(() => window.modalAnimationObserved);
+    await touchPage.setViewportSize({ width: 390, height: 320 });
+    await touchPage.waitForFunction(
+      () =>
+        document.querySelector(".settings-content").scrollHeight >
+        document.querySelector(".settings-content").clientHeight,
+    );
+    const modalBox = await touchPage.locator(".settings-dialog").boundingBox();
+    assert.ok(modalBox.y >= 0 && modalBox.y + modalBox.height <= 321);
+    await touch.close();
+    console.log(
+      "PASS system default, mobile touch effects activation/persistence, animated modal and small-height scrolling",
     );
     const noJS = await browser.newContext({
       javaScriptEnabled: false,
