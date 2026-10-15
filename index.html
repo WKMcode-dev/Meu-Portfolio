@@ -10,17 +10,17 @@
       name="description"
     />
     <meta content="#191a1e" name="theme-color" />
-    <script src="js/preferences.js?v=1.1.3"></script>
+    <script src="js/preferences.js?v=1.1.4"></script>
     <title data-i18n="meta.title">Wryell Kenneth — Full-stack &amp; IA</title>
     <link href="imgs/WKM_CODE_logo.png" rel="icon" type="image/png" />
-    <link href="css/styles.css?v=1.1.3" rel="stylesheet" />
-    <link href="css/navigation.css?v=1.1.3" rel="stylesheet" />
-    <script defer="" src="js/i18n.js?v=1.1.3"></script>
-    <script defer="" src="js/site.js?v=1.1.3"></script>
-    <script defer="" src="js/navigation.js?v=1.1.3"></script>
+    <link href="css/styles.css?v=1.1.4" rel="stylesheet" />
+    <link href="css/navigation.css?v=1.1.4" rel="stylesheet" />
+    <script defer="" src="js/i18n.js?v=1.1.4"></script>
+    <script defer="" src="js/site.js?v=1.1.4"></script>
+    <script defer="" src="js/navigation.js?v=1.1.4"></script>
     <script defer="" src="js/vendor/gsap.min.js"></script>
     <script defer="" src="js/vendor/ScrollTrigger.min.js"></script>
-    <script defer="" src="js/motion.js?v=1.1.3"></script>
+    <script defer="" src="js/motion.js?v=1.1.4"></script>
   </head>
   <body>
     <div aria-hidden="true" class="reading-progress"></div>
@@ -35,7 +35,7 @@
           class="brand"
           data-i18n-aria-label="brand.label"
           href="#inicio"
-          >WKM<span aria-hidden="true" class="brand-slashes">//</span
+          ><span class="brand-word">WKM</span><span aria-hidden="true" class="brand-slashes">//</span
           ><small>CODE</small></a
         >
         <button
@@ -543,67 +543,73 @@
       id="settings-dialog"
     >
       <div class="settings-shell">
-        <div class="dialog-top">
-          <p class="eyebrow" data-i18n="settings.eyebrow">
-            SISTEMA / PREFERÊNCIAS
-          </p>
-          <button
-            aria-label="Fechar configurações"
-            class="settings-close dialog-close"
-            data-i18n-aria-label="settings.close"
-            type="button"
-          >
-            ×
-          </button>
-        </div>
-        <h2 data-i18n="nav.settings" id="settings-title">Configurações</h2>
-        <p class="muted" data-i18n="settings.intro">
-          Um espaço do teu jeito. As escolhas ficam salvas neste navegador.
-        </p>
-        <fieldset class="theme-options">
-          <legend data-i18n="settings.theme">Aparência</legend>
-          <label
-            ><input name="theme" type="radio" value="dark" /><span
-              data-i18n="settings.dark"
-              >Escuro</span
-            ><span
-              aria-hidden="true"
-              class="theme-swatch dark-swatch"
-            ></span></label
-          ><label
-            ><input name="theme" type="radio" value="light" /><span
-              data-i18n="settings.light"
-              >Claro</span
-            ><span aria-hidden="true" class="theme-swatch light-swatch"></span
-          ></label>
-        </fieldset>
-        <div class="setting-row language-row">
-          <label data-i18n="settings.language" for="language">Idioma</label
-          ><select id="language">
-            <option lang="pt-BR" value="pt-BR">Português (BR)</option>
-            <option lang="en" value="en">English</option>
-            <option lang="es" value="es">Español</option>
-          </select>
-        </div>
-        <div class="setting-row">
-          <div>
-            <label data-i18n="settings.effects" for="effects"
-              >Efeitos visuais</label
-            >
-            <p class="muted" data-i18n="settings.effectsHint" id="effects-hint">
-              Partículas e animações decorativas.
+        <div class="settings-content">
+          <div class="dialog-top">
+            <p class="eyebrow" data-i18n="settings.eyebrow">
+              SISTEMA / PREFERÊNCIAS
             </p>
+            <button
+              aria-label="Fechar configurações"
+              class="settings-close dialog-close"
+              data-i18n-aria-label="settings.close"
+              type="button"
+            >
+              ×
+            </button>
           </div>
-          <input
-            aria-describedby="effects-hint"
-            id="effects"
-            role="switch"
-            type="checkbox"
-          />
+          <h2 data-i18n="nav.settings" id="settings-title">Configurações</h2>
+          <p class="muted" data-i18n="settings.intro">
+            Um espaço do teu jeito. As escolhas ficam salvas neste navegador.
+          </p>
+          <fieldset class="theme-options">
+            <legend data-i18n="settings.theme">Aparência</legend>
+            <label
+              ><input name="theme" type="radio" value="dark" /><span
+                data-i18n="settings.dark"
+                >Escuro</span
+              ><span
+                aria-hidden="true"
+                class="theme-swatch dark-swatch"
+              ></span></label
+            ><label
+              ><input name="theme" type="radio" value="light" /><span
+                data-i18n="settings.light"
+                >Claro</span
+              ><span aria-hidden="true" class="theme-swatch light-swatch"></span
+            ></label>
+          </fieldset>
+          <div class="setting-row language-row">
+            <label data-i18n="settings.language" for="language">Idioma</label
+            ><select id="language">
+              <option lang="pt-BR" value="pt-BR">Português (BR)</option>
+              <option lang="en" value="en">English</option>
+              <option lang="es" value="es">Español</option>
+            </select>
+          </div>
+          <div class="setting-row">
+            <div>
+              <label data-i18n="settings.effects" for="effects"
+                >Efeitos visuais</label
+              >
+              <p
+                class="muted"
+                data-i18n="settings.effectsHint"
+                id="effects-hint"
+              >
+                Partículas e animações decorativas.
+              </p>
+            </div>
+            <input
+              aria-describedby="effects-hint"
+              id="effects"
+              role="switch"
+              type="checkbox"
+            />
+          </div>
+          <p class="settings-footnote" data-i18n="settings.footnote">
+            As mudanças são aplicadas na hora.
+          </p>
         </div>
-        <p class="settings-footnote" data-i18n="settings.footnote">
-          As mudanças são aplicadas na hora.
-        </p>
       </div>
     </dialog>
   </body>
