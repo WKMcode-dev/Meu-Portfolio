@@ -1,4 +1,4 @@
-# Verificação — v1.1.4
+# Verificação — v1.1.5
 
 Executada em Chromium headless, com a interface real e os arquivos locais.
 
@@ -7,7 +7,7 @@ Executada em Chromium headless, com a interface real e os arquivos locais.
 - Configurações: abrir/fechar, temas claro e escuro, três idiomas e efeitos.
 - Modal de configurações: moldura SVG íntegra e rolagem interna em 390 × 320 px.
 - Contexto mobile real com toque e movimento reduzido: ativação manual, persistência e abertura animada da modal.
-- Logo WKM: deslocamento do reflexo prateado com a rolagem, com máscara da fonte real e alternativa em CSS.
+- Logo WKM: máscara da fonte real e conteúdo de fundo usado como fonte do filtro prismático; teste visual com faixas brancas/pretas e fundo sólido.
 - Persistência: recarregamento mantém tema, idioma e efeitos.
 - Projetos: diálogo e descrição traduzidos; fechamento por Escape.
 - Layout: conteúdo dos cards e elementos visíveis sem transbordamento horizontal.
