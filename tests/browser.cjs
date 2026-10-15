@@ -211,15 +211,24 @@ const assert = require("node:assert/strict");
     assert.ok(
       await motionPage.evaluate(() => window.ScrollTrigger.getAll().length > 0),
     );
-    const sheen = () => motionPage.locator(".brand-word").evaluate((el) =>
-      getComputedStyle(el).getPropertyValue("--chrome-position"));
-    const initialSheen = await sheen();
-    await motionPage.evaluate(() => scrollTo(0, 500));
-    await motionPage.waitForFunction((initial) =>
-      getComputedStyle(document.querySelector(".brand-word")).getPropertyValue("--chrome-position") !== initial,
-      initialSheen);
-    await screenshot(motionPage, "wkm-chrome-mobile");
-    await motionPage.evaluate(() => scrollTo(0, 0));
+    await motionPage.waitForFunction(() => document.querySelector(".brand-word").classList.contains("prism-ready"));
+    await motionPage.evaluate(() => {
+      const fixture = document.createElement("div");
+      fixture.id = "prism-fixture";
+      fixture.style.cssText = "position:fixed;inset:0;z-index:19;pointer-events:none;background:repeating-linear-gradient(90deg,#fff 0 4px,#000 4px 8px)";
+      document.body.append(fixture);
+    });
+    const prismImage = await motionPage.locator(".brand-word").screenshot();
+    if (screenshotDir) await motionPage.locator(".brand-word").screenshot({ path: join(screenshotDir, "prism-stripes.png") });
+    const plainStyle = await motionPage.addStyleTag({ content: ".brand-word::after { backdrop-filter:none!important; -webkit-backdrop-filter:none!important; }" });
+    const plainImage = await motionPage.locator(".brand-word").screenshot();
+    assert.notDeepEqual(prismImage, plainImage, "The prism must refract the monochrome stripes, not just tint them");
+    await plainStyle.evaluate(el => el.remove());
+    await motionPage.evaluate(() => document.querySelector("#prism-fixture").style.background = "black");
+    const changedBackdrop = await motionPage.locator(".brand-word").screenshot();
+    assert.notDeepEqual(prismImage, changedBackdrop, "The logo must render the actual content behind its letters");
+    await motionPage.evaluate(() => document.querySelector("#prism-fixture").remove());
+    await screenshot(motionPage, "wkm-prism-mobile");
     await motionPage.locator(".menu-toggle").click();
     await motionPage
       .getByRole("button", { name: "Configurações", exact: true })
