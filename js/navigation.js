@@ -32,6 +32,35 @@
   const frameObserver = new ResizeObserver(drawNavFrame);
   frameObserver.observe(nav);
   frameObserver.observe(nav.querySelector(".nav-content"));
+  const settingsShell = settings.querySelector(".settings-shell");
+  const settingsFrame = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "svg",
+  );
+  settingsFrame.classList.add("settings-frame");
+  settingsFrame.setAttribute("aria-hidden", "true");
+  settingsFrame.setAttribute("focusable", "false");
+  const settingsOutline = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "path",
+  );
+  settingsFrame.append(settingsOutline);
+  settingsShell.prepend(settingsFrame);
+  function drawSettingsFrame() {
+    const w = settingsShell.clientWidth,
+      h = settingsShell.clientHeight;
+    if (!w || !h) return;
+    const cut = 18,
+      notch = Math.min(w * 0.72, w - 60);
+    settingsFrame.setAttribute("viewBox", `0 0 ${w} ${h}`);
+    settingsOutline.setAttribute(
+      "d",
+      `M${cut} 1 H${notch} L${notch + 8} 7 H${w - cut} L${w - 1} 25 V${h - cut} L${w - cut} ${h - 1} H${cut} L1 ${h - cut} V${cut} Z`,
+    );
+  }
+  const settingsFrameObserver = new ResizeObserver(drawSettingsFrame);
+  settingsFrameObserver.observe(settingsShell);
+  settingsFrameObserver.observe(settings.querySelector(".settings-content"));
   let opener = null;
   function setMenu(open, focus = false) {
     toggle.setAttribute("aria-expanded", String(open));
@@ -92,6 +121,7 @@
       opener = mobile.matches ? toggle : event.currentTarget;
       setMenu(false);
       settings.showModal();
+      drawSettingsFrame();
     });
   document
     .querySelector(".settings-close")
