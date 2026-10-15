@@ -91,6 +91,7 @@ body::before {
   pointer-events: auto;
 }
 .brand {
+  color: var(--accent);
   display: inline-flex;
   align-items: baseline;
 }
@@ -131,7 +132,7 @@ body::before {
   gap: 6px;
   padding: 8px 14px;
   order: initial;
-  color: var(--inverse-ink);
+  color: var(--ink);
   background: transparent;
 }
 .site-nav::before,
@@ -156,16 +157,6 @@ body::before {
     0 calc(100% - 14px),
     0 14px
   );
-}
-@supports (
-  (backdrop-filter: invert(1)) or (-webkit-backdrop-filter: invert(1))
-) {
-  .site-nav::before,
-  .menu-toggle::before {
-    background: var(--inverse-tint);
-    -webkit-backdrop-filter: invert(1) blur(12px);
-    backdrop-filter: invert(1) blur(12px);
-  }
 }
 .site-nav a,
 .site-nav button {
@@ -545,4 +536,32 @@ select:focus-visible {
 }
 .custom-project-card:hover {
   transform: none;
+}
+
+.brand small {
+  color: var(--ink);
+}
+.site-nav::before {
+  background: var(--surface);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.menu-toggle {
+  color: var(--ink);
+}
+.menu-toggle::before {
+  background: transparent url("../imgs/menu-control-frame.svg") center / 100%
+    100% no-repeat;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  clip-path: none;
+}
+@supports (
+  (backdrop-filter: invert(1)) or (-webkit-backdrop-filter: invert(1))
+) {
+  .menu-rails i {
+    background: transparent;
+    -webkit-backdrop-filter: invert(1);
+    backdrop-filter: invert(1);
+  }
 }
