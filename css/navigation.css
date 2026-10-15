@@ -60,7 +60,7 @@ body::before {
   background: var(--surface);
 }
 .project-cover > path {
-  stroke: var(--accent);
+  stroke: var(--line);
 }
 :root[data-theme="light"] .custom-project-card {
   background-image: url("../imgs/project-card-frame-light.svg");
@@ -563,5 +563,58 @@ select:focus-visible {
     background: transparent;
     -webkit-backdrop-filter: invert(1);
     backdrop-filter: invert(1);
+  }
+}
+
+/* A moldura fica fora da área rolável para seus cantos não serem recortados. */
+.site-nav {
+  overflow: visible;
+}
+.nav-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.nav-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: -1;
+  pointer-events: none;
+}
+.nav-frame path {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.site-nav.has-frame::before {
+  display: none;
+}
+.custom-project-card .project-actions a,
+.custom-project-card .project-actions button {
+  border-color: var(--line);
+}
+.custom-project-card .project-actions a:hover,
+.custom-project-card .project-actions button:hover {
+  border-color: var(--accent);
+}
+@media (max-width: 700px) {
+  .site-nav {
+    max-height: none;
+    overflow: visible;
+  }
+  .nav-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-height: calc(100dvh - 148px);
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
   }
 }
