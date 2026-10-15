@@ -18,7 +18,9 @@
         ? saved.effects
         : !reducedMotion.matches,
   };
+  let reflectedMotion;
   function reflect() {
+    reflectedMotion = state.effects && !reducedMotion.matches;
     document.documentElement.dataset.theme = state.theme;
     document.documentElement.dataset.effects =
       state.effects && !reducedMotion.matches ? "on" : "off";
@@ -49,9 +51,28 @@
     }),
     set,
   };
-  reducedMotion.addEventListener("change", () => {
+  function syncSystemMotion() {
+    if (reflectedMotion === (state.effects && !reducedMotion.matches)) return;
     reflect();
     window.dispatchEvent(new CustomEvent("portfolio:settings"));
+  }
+  // Alguns navegadores atualizam matches sem entregar o evento change.
+  // Reconciliação leve, sem redesenhar nem notificar quando nada mudou.
+  let motionTimer;
+  function watchSystemMotion() {
+    clearInterval(motionTimer);
+    syncSystemMotion();
+    motionTimer = setInterval(() => {
+      if (!document.hidden) syncSystemMotion();
+    }, 500);
+  }
+  reducedMotion.addEventListener("change", syncSystemMotion);
+  window.addEventListener("focus", syncSystemMotion);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) syncSystemMotion();
   });
+  window.addEventListener("pagehide", () => clearInterval(motionTimer));
+  window.addEventListener("pageshow", watchSystemMotion);
   reflect();
+  watchSystemMotion();
 })();
