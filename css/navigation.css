@@ -218,7 +218,7 @@ html:not(.js-ready) .settings-open {
 .settings-shell h2 {
   margin: 18px 0 12px;
 }
-.settings-shell > p.muted {
+.settings-content > p.muted {
   font-size: 14px;
   margin-bottom: 26px;
 }
@@ -616,5 +616,106 @@ select:focus-visible {
     overflow: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
+  }
+}
+
+/* Modal: contorno independente do conteúdo que pode rolar. */
+.settings-shell {
+  isolation: isolate;
+  padding: 0;
+  max-height: none;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  clip-path: none;
+}
+.settings-content {
+  margin: 14px;
+  padding: 16px;
+  max-height: calc(100dvh - 76px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+.settings-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: -1;
+}
+.settings-frame path {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+@media (max-width: 700px) {
+  .settings-shell {
+    padding: 0;
+  }
+  .settings-content {
+    margin: 12px;
+    padding: 12px;
+    max-height: calc(100dvh - 72px);
+  }
+}
+:root[data-effects="on"] .menu-rails i,
+:root[data-effects="on"] #effects::before {
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
+}
+.settings-shell { display:flow-root; }
+
+/* Vermelho preservado sob um reflexo metálico localizado nas letras. */
+.brand .brand-word {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  color: var(--accent);
+  --chrome-position: -110%;
+}
+.brand-word::after {
+  content: "WKM";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(112deg,
+    transparent 32%, #aeb8c17a 40%, #d4e4ea 44%,
+    #e4ddea 47%, #ffffff 50%, #e6e8d9 53%,
+    #bed4db 56%, #8d98a67a 60%, transparent 68%);
+  background-size: 250% 100%;
+  background-position: var(--chrome-position) center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+:root[data-effects="on"] .brand-word::after { opacity: .92; }
+
+/* Nos navegadores compatíveis, o reflexo também filtra o fundo real. */
+@supports ((backdrop-filter: grayscale(1)) or (-webkit-backdrop-filter: grayscale(1))) {
+  :root[data-effects="on"] .brand-word.chrome-ready { color: transparent; }
+  :root[data-effects="on"] .brand-word.chrome-ready::after {
+    content: "";
+    -webkit-mask-image: var(--brand-mask);
+    mask-image: var(--brand-mask);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-backdrop-filter: grayscale(.92) contrast(1.25) brightness(1.65);
+    backdrop-filter: grayscale(.92) contrast(1.25) brightness(1.65);
+    background-image: linear-gradient(112deg,
+      var(--accent) 32%, #aeb8c1b8 40%, #d4e4eac4 44%,
+      #e4ddeab8 47%, #ffffffcf 50%, #e6e8d9b8 53%,
+      #bed4dbc4 56%, #8d98a6b8 60%, var(--accent) 68%);
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    mix-blend-mode: normal;
+    opacity: 1;
   }
 }
