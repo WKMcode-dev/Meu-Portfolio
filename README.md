@@ -1,35 +1,51 @@
-# Meu Portfólio — SCI-FI modernizado
+# WKM // CODE — Portfólio
 
-Recriação do portfólio de Wryell Kenneth em HTML, CSS e JavaScript puro. Mantém grafite, vermelho, detalhes verdes/laranja e os assets originais.
+Portfólio de Wryell Kenneth, desenvolvedor full-stack e profissional de TI. Apresenta aplicações web e desktop, ferramentas próprias e o uso de IA no processo de desenvolvimento.
 
-## Abrir
-Baixe o ZIP desta branch, extraia e abra index.html no Edge, Chrome ou Firefox atual. Não precisa instalar dependências. Os arquivos e imagens usam caminhos relativos, inclusive em subpastas de hospedagem.
+## Usar
 
-## Arquivos principais
-- index.html: conteúdo e estrutura semântica.
-- css/styles.css: layout responsivo, identidade visual e estados de foco.
-- js/site.js: contornos SVG, detalhes dos projetos, partículas e controle de efeitos.
-- imgs/: imagens e SVGs do projeto original, preservados.
+Abra `index.html` em um navegador atual ou acesse https://wkmcode-dev.github.io/Meu-Portfolio/.
+Não exige instalação nem compilação. Todos os scripts, animações, traduções e imagens são locais e funcionam também ao abrir o arquivo diretamente.
 
-Os outros CSS/JS antigos permanecem como referência, mas index.html carrega apenas styles.css e site.js.
+## Navegação e preferências
 
-## Correções
-- Conteúdo determina a altura dos cards; sem altura fixa ou corte de texto.
-- Grades empilham em telas menores; tipografia legível e controles com espaço.
-- Recortes SVG calculados a partir do tamanho real, com borda contínua.
-- Links de imagens relativos corrigidos: imgs/ no HTML, não ../imgs/.
-- Um único h1 e títulos hierárquicos; link para pular ao conteúdo.
-- Links e botões separados; não há botão dentro de link ou link dentro de botão.
-- Detalhes em dialog nativo: Escape, botão de fechar, fechamento por fundo e retorno de foco.
-- Links externos com noopener/noreferrer.
-- Efeitos pausáveis, ativos por padrão independentemente da preferência de movimento reduzido do sistema, partículas limitadas e pausadas em aba oculta.
-- O código não inventa endereço de e-mail, telefone, métricas ou documentação de projetos.
+- Menu mobile com recortes SCI-FI, fechamento por Escape, clique fora ou escolha de seção.
+- Inversão do fundo nos `//`, no controle mobile e na superfície da navegação. Navegadores sem backdrop-filter recebem uma alternativa sólida legível.
+- Configurações em diálogo nativo: tema claro/escuro, português/inglês/espanhol e efeitos visuais.
+- Preferências salvas somente no armazenamento deste navegador; sem cookies de rastreamento nem serviços externos de tradução.
+- A preferência de movimento reduzido do sistema tem prioridade sobre animações decorativas.
+- Animações GSAP de entrada, navegação, diálogos, interação e progresso de leitura. A rolagem permanece nativa.
 
-## Como personalizar
-Cores e largura máxima ficam em :root de css/styles.css. Conteúdo e links ficam no HTML.
-Para estudar os recortes: drawFrame() em js/site.js cria a sequência M/L/Z. ResizeObserver atualiza as coordenadas quando o card muda de tamanho.
-SVG é decorativo; os textos continuam HTML para quebra de linhas e acessibilidade.
-Sem JavaScript, o conteúdo e links permanecem, com cards retangulares e borda CSS.
+## Organização
 
-## Verificação
-Consulte o relatório entregue com esta versão para os testes efetivamente executados. Links externos foram preservados do original; a disponibilidade dos projetos é responsabilidade dos respectivos repositórios.
+- `index.html`: conteúdo semântico em português e atributos de tradução.
+- `css/styles.css`: identidade e componentes originais.
+- `css/navigation.css`: navegação, temas, configurações e estados de movimento.
+- `js/preferences.js`: preferências e aplicação inicial do tema.
+- `js/i18n.js`: catálogos locais, metadados, textos e rótulos acessíveis.
+- `js/navigation.js`: menu, seção ativa e configurações.
+- `js/site.js`: contornos SVG, diálogos dos projetos e partículas.
+- `js/motion.js`: animações e sua limpeza ao desativar efeitos.
+- `js/vendor`: GSAP e ScrollTrigger, com avisos de origem e licença.
+- `tests/browser.cjs`: verificações da navegação e das preferências em navegador real.
+
+Os arquivos antigos não referenciados pelo HTML permanecem como histórico do projeto.
+
+## Desenvolvimento
+
+Requer Node.js 22 ou superior apenas para as ferramentas de desenvolvimento:
+
+```sh
+npm ci
+npx playwright install chromium
+npm run check
+npm test
+```
+
+Para executar com um Chromium instalado em outro caminho, defina `TEST_BROWSER_EXECUTABLE`. `PORTFOLIO_SCREENSHOTS` define a pasta opcional de capturas de verificação. `npm run vendor` atualiza os dois arquivos locais a partir da versão fixada no lockfile.
+
+## Publicação
+
+A branch `main` é validada e publicada no GitHub Pages pelo workflow de publicação. Notas em `docs/release-v*.md` acionam a criação da release correspondente à versão de `package.json`, com um ZIP completo. Releases existentes são preservadas.
+
+Os textos descrevem projetos e formas de trabalho; não declaram métricas de resultado, nível de senioridade ou clientes não comprovados.

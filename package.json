@@ -1,0 +1,15 @@
+{
+  "name": "wkm-portfolio",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Portfólio estático de Wryell Kenneth",
+  "scripts": {
+    "check": "node --check js/preferences.js && node --check js/i18n.js && node --check js/site.js && node --check js/navigation.js && node --check js/motion.js",
+    "test": "node tests/browser.cjs",
+    "vendor": "node scripts/vendor.cjs"
+  },
+  "devDependencies": {
+    "gsap": "3.15.0",
+    "playwright": "1.61.1"
+  }
+}

@@ -1,0 +1,43 @@
+name: Release portfolio
+on:
+  push:
+    branches: [main]
+    paths: ["docs/release-v*.md"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: portfolio-release
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+  release:
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish versioned source ZIP
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(node -p 'require("./package.json").version')
+          TAG="v$VERSION"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release already published; preserving existing assets."
+            exit 0
+          fi
+          git archive --format=zip --prefix=Meu-Portfolio/ --output="/tmp/Meu-Portfolio-$TAG.zip" HEAD
+          gh release create "$TAG" "/tmp/Meu-Portfolio-$TAG.zip" --target "$GITHUB_SHA" --title "$TAG — Navegação e experiência full-stack" --notes-file "docs/release-$TAG.md"
