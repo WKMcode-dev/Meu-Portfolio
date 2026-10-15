@@ -8,6 +8,7 @@
   } catch {
     /* Modo privado ou armazenamento indisponível. */
   }
+  let explicitEffects = typeof saved.effects === "boolean";
   const state = {
     theme: saved.theme === "light" ? "light" : "dark",
     language: ["pt-BR", "en", "es"].includes(saved.language)
@@ -20,10 +21,9 @@
   };
   let reflectedMotion;
   function reflect() {
-    reflectedMotion = state.effects && !reducedMotion.matches;
+    reflectedMotion = state.effects;
     document.documentElement.dataset.theme = state.theme;
-    document.documentElement.dataset.effects =
-      state.effects && !reducedMotion.matches ? "on" : "off";
+    document.documentElement.dataset.effects = state.effects ? "on" : "off";
     document.documentElement.lang = state.language;
     document
       .querySelector('meta[name="theme-color"]')
@@ -33,10 +33,19 @@
     if (["dark", "light"].includes(patch.theme)) state.theme = patch.theme;
     if (["pt-BR", "en", "es"].includes(patch.language))
       state.language = patch.language;
-    if (typeof patch.effects === "boolean") state.effects = patch.effects;
+    if (typeof patch.effects === "boolean") {
+      state.effects = patch.effects;
+      explicitEffects = true;
+    }
     reflect();
     try {
-      localStorage.setItem(key, JSON.stringify(state));
+      localStorage.setItem(
+        key,
+        JSON.stringify({
+          ...state,
+          effects: explicitEffects ? state.effects : undefined,
+        }),
+      );
     } catch {
       /* Leitura e navegação continuam disponíveis. */
     }
@@ -47,12 +56,13 @@
   window.PortfolioSettings = {
     get: () => ({
       ...state,
-      motionAllowed: state.effects && !reducedMotion.matches,
+      motionAllowed: state.effects,
     }),
     set,
   };
   function syncSystemMotion() {
-    if (reflectedMotion === (state.effects && !reducedMotion.matches)) return;
+    if (!explicitEffects) state.effects = !reducedMotion.matches;
+    if (reflectedMotion === state.effects) return;
     reflect();
     window.dispatchEvent(new CustomEvent("portfolio:settings"));
   }
