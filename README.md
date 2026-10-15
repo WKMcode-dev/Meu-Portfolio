@@ -10,7 +10,7 @@ Não exige instalação nem compilação. Todos os scripts, animações, traduç
 ## Navegação e preferências
 
 - Menu mobile com recortes SCI-FI, fechamento por Escape, clique fora ou escolha de seção.
-- Inversão do fundo nos `//`, no controle mobile e na superfície da navegação. Navegadores sem backdrop-filter recebem uma alternativa sólida legível.
+- WKM no vermelho de destaque; inversão do fundo somente nos `//` e nos traços do ícone mobile. O painel de navegação segue as cores do tema. Navegadores sem backdrop-filter recebem uma alternativa sólida legível.
 - Configurações em diálogo nativo: tema claro/escuro, português/inglês/espanhol e efeitos visuais.
 - Preferências salvas somente no armazenamento deste navegador; sem cookies de rastreamento nem serviços externos de tradução.
 - A preferência de movimento reduzido do sistema tem prioridade sobre animações decorativas.
