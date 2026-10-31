@@ -670,33 +670,26 @@ select:focus-visible {
 }
 .settings-shell { display:flow-root; }
 
-/* Static glass facets: independent of backdrop filters, JavaScript and motion. */
+/* The WebGL canvas is decorative; real text keeps sizing and accessibility. */
 .brand .brand-word {
   position: relative;
   display: inline-block;
   margin: 0;
-  color: var(--accent);
+  color: var(--ink);
 }
-@supports ((background-clip: text) or (-webkit-background-clip: text)) {
-  .brand .brand-word {
-    background-color: #dce9f4;
-    background-image:
-      linear-gradient(154deg, transparent 18%, #ffffffed 19%, transparent 22%, transparent 49%, #ffffffd9 50%, transparent 53%, transparent 77%, #ffffffa8 78%, transparent 80%),
-      conic-gradient(from 215deg at 65% 42%, #091b38, #7defff, #eefaff 12%, #5552ad 20%, #131725 29%, #e89bce 38%, #f9ffd2 42%, #7be3b7 46%, #103e57 54%, #161328 66%, #bcb2f7 76%, #f8faff 82%, #468fac 88%, #091b38);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 1px 0 #10263866);
-  }
+.brand-prism {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  visibility: hidden;
 }
+.brand .brand-word.prism-active { color: transparent; }
+.prism-active .brand-prism { visibility: visible; }
 @media (forced-colors: active) {
-  .brand .brand-word {
-    background: none;
-    color: LinkText;
-    -webkit-text-fill-color: LinkText;
-    filter: none;
-  }
+  .brand .brand-word.prism-active { color: LinkText; }
+  .brand-prism { display: none; }
 }
 /* Inline SVGs keep their stroke and metrics on iOS and after translation. */
 .icon {
