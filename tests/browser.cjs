@@ -219,7 +219,7 @@ const assert = require("node:assert/strict");
     assert.ok(
       await motionPage.evaluate(() => window.ScrollTrigger.getAll().length > 0),
     );
-    assert.match(await motionPage.locator(".brand-word").evaluate(el => getComputedStyle(el).backgroundImage), /conic-gradient/);
+    assert.equal(await motionPage.locator(".brand-word").evaluate(el => getComputedStyle(el).backgroundImage), "none");
     await screenshot(motionPage, "wkm-prism-mobile");
     await motionPage.locator(".menu-toggle").click();
     await motionPage

@@ -14,7 +14,7 @@ const { resolve } = require('node:path');
           await page.evaluate(settings => window.PortfolioSettings.set(settings), {language, theme});
           assert.equal(await page.locator('svg.icon').count(), 9);
           assert.doesNotMatch(await page.locator('body').innerText(), /[\u2190-\u21ff\u2700-\u27bf]/);
-          assert.match(await page.locator('.brand-word').evaluate(el => getComputedStyle(el).backgroundImage), /conic-gradient/);
+          assert.equal(await page.locator('.brand-word').evaluate(el => getComputedStyle(el).backgroundImage), 'none');
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${width} ${language} ${theme} overflow`);
         }
       }
