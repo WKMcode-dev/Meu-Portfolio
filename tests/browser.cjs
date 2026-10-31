@@ -21,7 +21,7 @@ const assert = require("node:assert/strict");
           new URL(req.url, "http://localhost").pathname,
         ).replace(/\/$/, "/index.html"),
     );
-    if (!path.startsWith(root + "/")) {
+    if (!path.startsWith(root + require("node:path").sep)) {
       res.writeHead(403);
       res.end();
       return;
@@ -62,6 +62,14 @@ const assert = require("node:assert/strict");
       const errors = [];
       page.on("pageerror", (e) => errors.push(e.message));
       await page.goto(url);
+      for (const language of ["pt-BR", "en", "es"]) {
+        await page.evaluate(language => window.PortfolioSettings.set({ language }), language);
+        assert.equal(await page.locator("a:has([data-i18n='hero.explore']) svg.icon").count(), 1);
+        assert.equal(await page.locator("svg.icon").count(), 9);
+        assert.doesNotMatch(await page.locator("body").innerText(), /[\u2190-\u21ff\u2700-\u27bf]/);
+      }
+      await page.evaluate(() => window.PortfolioSettings.set({ language: "pt-BR" }));
+
       const mobile = width <= 700,
         toggle = page.locator(".menu-toggle");
       if (mobile) {
@@ -211,23 +219,7 @@ const assert = require("node:assert/strict");
     assert.ok(
       await motionPage.evaluate(() => window.ScrollTrigger.getAll().length > 0),
     );
-    await motionPage.waitForFunction(() => document.querySelector(".brand-word").classList.contains("prism-ready"));
-    await motionPage.evaluate(() => {
-      const fixture = document.createElement("div");
-      fixture.id = "prism-fixture";
-      fixture.style.cssText = "position:fixed;inset:0;z-index:19;pointer-events:none;background:repeating-linear-gradient(90deg,#fff 0 4px,#000 4px 8px)";
-      document.body.append(fixture);
-    });
-    const prismImage = await motionPage.locator(".brand-word").screenshot();
-    if (screenshotDir) await motionPage.locator(".brand-word").screenshot({ path: join(screenshotDir, "prism-stripes.png") });
-    const plainStyle = await motionPage.addStyleTag({ content: ".brand-word::after { backdrop-filter:none!important; -webkit-backdrop-filter:none!important; }" });
-    const plainImage = await motionPage.locator(".brand-word").screenshot();
-    assert.notDeepEqual(prismImage, plainImage, "The prism must refract the monochrome stripes, not just tint them");
-    await plainStyle.evaluate(el => el.remove());
-    await motionPage.evaluate(() => document.querySelector("#prism-fixture").style.background = "black");
-    const changedBackdrop = await motionPage.locator(".brand-word").screenshot();
-    assert.notDeepEqual(prismImage, changedBackdrop, "The logo must render the actual content behind its letters");
-    await motionPage.evaluate(() => document.querySelector("#prism-fixture").remove());
+    assert.match(await motionPage.locator(".brand-word").evaluate(el => getComputedStyle(el).backgroundImage), /conic-gradient/);
     await screenshot(motionPage, "wkm-prism-mobile");
     await motionPage.locator(".menu-toggle").click();
     await motionPage

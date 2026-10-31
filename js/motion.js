@@ -3,38 +3,6 @@
   if (!window.gsap || !window.ScrollTrigger) return;
   const { gsap, ScrollTrigger } = window;
   gsap.registerPlugin(ScrollTrigger);
-  // Máscara gerada com a fonte real: o filtro atua somente nas letras,
-  // deixando o conteúdo da página participar do efeito prismático.
-  const brandWord = document.querySelector(".brand-word");
-  function prepareLogoMask() {
-    if (!brandWord) return;
-    const style = getComputedStyle(brandWord);
-    const width = brandWord.offsetWidth, height = brandWord.offsetHeight;
-    if (!width || !height) return;
-    try {
-      const canvas = document.createElement("canvas");
-      const ratio = Math.min(devicePixelRatio || 1, 3);
-      canvas.width = Math.ceil(width * ratio);
-      canvas.height = Math.ceil(height * ratio);
-      const ctx = canvas.getContext("2d");
-      if (!ctx || !("letterSpacing" in ctx)) return;
-      ctx.scale(ratio, ratio);
-      ctx.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
-      ctx.letterSpacing = style.letterSpacing;
-      ctx.fillStyle = "white";
-      const metrics = ctx.measureText("WKM");
-      const ascent = metrics.fontBoundingBoxAscent;
-      const descent = metrics.fontBoundingBoxDescent;
-      if (!Number.isFinite(ascent + descent)) return;
-      ctx.fillText("WKM", 0, (height - ascent - descent) / 2 + ascent);
-      brandWord.style.setProperty("--brand-mask", `url("${canvas.toDataURL()}")`);
-      brandWord.classList.add("prism-ready");
-    } catch { /* A logo vermelha continua disponível sem a máscara. */ }
-  }
-  prepareLogoMask();
-  document.fonts?.ready.then(prepareLogoMask);
-  if (brandWord && window.ResizeObserver)
-    new ResizeObserver(prepareLogoMask).observe(brandWord);
   let context = null;
   let heroPlayed = false;
   let allowed = false;

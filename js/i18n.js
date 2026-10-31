@@ -19,7 +19,7 @@
       "hero.name": "Eu sou",
       "hero.description":
         "Crio aplicações web e desktop que conectam interfaces, APIs e dados. Uso IA para acelerar o desenvolvimento, com atenção à arquitetura, aos testes e à experiência de quem usa.",
-      "hero.explore": "Explorar projetos ↗",
+      "hero.explore": "Explorar projetos",
       "hero.stack": "TYPESCRIPT / REACT / NODE.JS / RUST",
       creation: "02 / CONSTRUÇÃO",
       "cta.eyebrow": "DA NECESSIDADE À ENTREGA",
@@ -28,7 +28,7 @@
       "cta.third": "Evoluir.",
       "cta.description":
         "De painéis operacionais a ferramentas de criação: gosto de entender o problema, construir uma solução e melhorar a cada versão.",
-      "cta.link": "Conheça meu trabalho ↓",
+      "cta.link": "Conheça meu trabalho",
       "about.eyebrow": "03 / SOBRE MIM",
       "about.first": "Curiosidade que vira",
       "about.last": "solução.",
@@ -38,7 +38,7 @@
         "Meu laboratório reúne dashboards com integração de APIs, monitoramento de redes, editores visuais e utilitários desktop. Transito entre interface e backend, cuidando dos dados, da organização do código e da entrega.",
       "about.ai":
         "A IA faz parte do meu processo para explorar ideias, implementar e refatorar com mais agilidade. Eu defino o que a aplicação precisa resolver, reviso o resultado e verifico o comportamento antes de publicar.",
-      "about.link": "Veja isso na prática ↓",
+      "about.link": "Veja isso na prática",
       "toolkit.eyebrow": "FERRAMENTAS / STACK",
       "toolkit.title": "Do navegador ao sistema.",
       "toolkit.note": "APIs · WebSocket · automação · testes · CI/CD",
@@ -47,7 +47,7 @@
       "projects.eyebrow": "04 / PROJETOS",
       "projects.first": "Do meu",
       "projects.last": "laboratório.",
-      "projects.all": "Todos no GitHub ↗",
+      "projects.all": "Todos no GitHub",
       "ping.category": "REDE / MONITORAMENTO",
       "ping.summary":
         "Monitoramento de disponibilidade com histórico de incidentes, mapa de infraestrutura e modo TV.",
@@ -78,12 +78,12 @@
       "contact.last": "tirar do papel?",
       "contact.description":
         "Conheça o que estou construindo e vamos conversar sobre a próxima solução.",
-      "contact.link": "Encontrar WKMcode ↗",
+      "contact.link": "Encontrar WKMcode",
       footer: "CURIOSIDADE / CÓDIGO / EVOLUÇÃO",
-      top: "Voltar ao topo ↑",
+      top: "Voltar ao topo",
       "dialog.eyebrow": "ARQUIVO / PROJETO",
       "dialog.close": "Fechar detalhes",
-      "dialog.link": "Abrir repositório ↗",
+      "dialog.link": "Abrir repositório",
       "settings.eyebrow": "SISTEMA / PREFERÊNCIAS",
       "settings.close": "Fechar configurações",
       "settings.intro":
@@ -117,7 +117,7 @@
       "hero.name": "I’m",
       "hero.description":
         "I build web and desktop applications that connect interfaces, APIs and data. I use AI to speed up development, with care for architecture, testing and the people using the software.",
-      "hero.explore": "Explore projects ↗",
+      "hero.explore": "Explore projects",
       "hero.stack": "TYPESCRIPT / REACT / NODE.JS / RUST",
       creation: "02 / BUILDING",
       "cta.eyebrow": "FROM NEED TO DELIVERY",
@@ -126,7 +126,7 @@
       "cta.third": "Improve.",
       "cta.description":
         "From operational dashboards to creative tools: I enjoy understanding the problem, building a solution and improving it with each release.",
-      "cta.link": "Get to know my work ↓",
+      "cta.link": "Get to know my work",
       "about.eyebrow": "03 / ABOUT ME",
       "about.first": "Curiosity turned into",
       "about.last": "solutions.",
@@ -136,7 +136,7 @@
         "My lab includes API-connected dashboards, network monitoring, visual editors and desktop utilities. I work across interfaces and backends, paying attention to data, code structure and delivery.",
       "about.ai":
         "AI is part of my process for exploring ideas, implementing features and refactoring faster. I define what the application needs to solve, review the result and check its behaviour before publishing.",
-      "about.link": "See it in practice ↓",
+      "about.link": "See it in practice",
       "toolkit.eyebrow": "TOOLS / STACK",
       "toolkit.title": "From browser to system.",
       "toolkit.note": "APIs · WebSocket · automation · testing · CI/CD",
@@ -145,7 +145,7 @@
       "projects.eyebrow": "04 / PROJECTS",
       "projects.first": "From my",
       "projects.last": "lab.",
-      "projects.all": "All on GitHub ↗",
+      "projects.all": "All on GitHub",
       "ping.category": "NETWORK / MONITORING",
       "ping.summary":
         "Availability monitoring with incident history, an infrastructure map and TV mode.",
@@ -176,12 +176,12 @@
       "contact.last": "come to life?",
       "contact.description":
         "Explore what I’m building and let’s talk about the next solution.",
-      "contact.link": "Find WKMcode ↗",
+      "contact.link": "Find WKMcode",
       footer: "CURIOSITY / CODE / GROWTH",
-      top: "Back to top ↑",
+      top: "Back to top",
       "dialog.eyebrow": "ARCHIVE / PROJECT",
       "dialog.close": "Close details",
-      "dialog.link": "Open repository ↗",
+      "dialog.link": "Open repository",
       "settings.eyebrow": "SYSTEM / PREFERENCES",
       "settings.close": "Close settings",
       "settings.intro":
@@ -215,7 +215,7 @@
       "hero.name": "Soy",
       "hero.description":
         "Creo aplicaciones web y de escritorio que conectan interfaces, APIs y datos. Uso IA para agilizar el desarrollo, cuidando la arquitectura, las pruebas y la experiencia de uso.",
-      "hero.explore": "Explorar proyectos ↗",
+      "hero.explore": "Explorar proyectos",
       "hero.stack": "TYPESCRIPT / REACT / NODE.JS / RUST",
       creation: "02 / CONSTRUCCIÓN",
       "cta.eyebrow": "DE LA NECESIDAD A LA ENTREGA",
@@ -224,7 +224,7 @@
       "cta.third": "Evolucionar.",
       "cta.description":
         "De paneles operativos a herramientas creativas: me gusta entender el problema, construir una solución y mejorarla en cada versión.",
-      "cta.link": "Conoce mi trabajo ↓",
+      "cta.link": "Conoce mi trabajo",
       "about.eyebrow": "03 / SOBRE MÍ",
       "about.first": "Curiosidad que se convierte en",
       "about.last": "soluciones.",
@@ -234,7 +234,7 @@
         "Mi laboratorio reúne dashboards conectados a APIs, monitorización de redes, editores visuales y utilidades de escritorio. Trabajo entre la interfaz y el backend, cuidando los datos, la organización del código y la entrega.",
       "about.ai":
         "La IA forma parte de mi proceso para explorar ideas, implementar y refactorizar con mayor agilidad. Defino qué debe resolver la aplicación, reviso el resultado y compruebo su funcionamiento antes de publicar.",
-      "about.link": "Míralo en la práctica ↓",
+      "about.link": "Míralo en la práctica",
       "toolkit.eyebrow": "HERRAMIENTAS / STACK",
       "toolkit.title": "Del navegador al sistema.",
       "toolkit.note": "APIs · WebSocket · automatización · pruebas · CI/CD",
@@ -243,7 +243,7 @@
       "projects.eyebrow": "04 / PROYECTOS",
       "projects.first": "De mi",
       "projects.last": "laboratorio.",
-      "projects.all": "Todos en GitHub ↗",
+      "projects.all": "Todos en GitHub",
       "ping.category": "RED / MONITORIZACIÓN",
       "ping.summary":
         "Monitorización de disponibilidad con historial de incidentes, mapa de infraestructura y modo TV.",
@@ -274,12 +274,12 @@
       "contact.last": "hacer realidad?",
       "contact.description":
         "Conoce lo que estoy construyendo y hablemos de la próxima solución.",
-      "contact.link": "Encontrar WKMcode ↗",
+      "contact.link": "Encontrar WKMcode",
       footer: "CURIOSIDAD / CÓDIGO / EVOLUCIÓN",
-      top: "Volver arriba ↑",
+      top: "Volver arriba",
       "dialog.eyebrow": "ARCHIVO / PROYECTO",
       "dialog.close": "Cerrar detalles",
-      "dialog.link": "Abrir repositorio ↗",
+      "dialog.link": "Abrir repositorio",
       "settings.eyebrow": "SISTEMA / PREFERENCIAS",
       "settings.close": "Cerrar ajustes",
       "settings.intro":
