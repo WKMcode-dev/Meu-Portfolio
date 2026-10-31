@@ -670,39 +670,40 @@ select:focus-visible {
 }
 .settings-shell { display:flow-root; }
 
-/* A página é a fonte óptica: sem gradiente ou brilho animado sobre a logo. */
-.effect-definitions { position: absolute; pointer-events: none; }
+/* Static glass facets: independent of backdrop filters, JavaScript and motion. */
 .brand .brand-word {
   position: relative;
   display: inline-block;
   margin: 0;
   color: var(--accent);
 }
-@supports ((backdrop-filter: saturate(1)) or (-webkit-backdrop-filter: saturate(1))) {
-  :root[data-effects="on"] .brand-word.prism-ready { color: transparent; }
-  :root[data-effects="on"] .brand-word.prism-ready::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    -webkit-mask-image: var(--brand-mask);
-    mask-image: var(--brand-mask);
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    /* Alternativa CSS para motores sem filtro SVG no backdrop. */
-    -webkit-backdrop-filter: saturate(.35) contrast(1.25);
-    backdrop-filter: saturate(.35) contrast(1.25);
-    -webkit-backdrop-filter: url("#wkm-prism");
-    backdrop-filter: url("#wkm-prism");
-    background: color-mix(in srgb, var(--accent) 10%, transparent);
-  }
-  :root[data-effects="on"] .brand-word.prism-ready::before {
-    content: "WKM";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .brand .brand-word {
+    background-color: #dce9f4;
+    background-image:
+      linear-gradient(154deg, transparent 18%, #ffffffed 19%, transparent 22%, transparent 49%, #ffffffd9 50%, transparent 53%, transparent 77%, #ffffffa8 78%, transparent 80%),
+      conic-gradient(from 215deg at 65% 42%, #091b38, #7defff, #eefaff 12%, #5552ad 20%, #131725 29%, #e89bce 38%, #f9ffd2 42%, #7be3b7 46%, #103e57 54%, #161328 66%, #bcb2f7 76%, #f8faff 82%, #468fac 88%, #091b38);
+    -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
-    -webkit-text-stroke: .45px var(--accent);
-    z-index: 1;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 0 #10263866);
   }
+}
+@media (forced-colors: active) {
+  .brand .brand-word {
+    background: none;
+    color: LinkText;
+    -webkit-text-fill-color: LinkText;
+    filter: none;
+  }
+}
+/* Inline SVGs keep their stroke and metrics on iOS and after translation. */
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  vertical-align: -0.125em;
+  pointer-events: none;
 }

@@ -10,38 +10,19 @@
       name="description"
     />
     <meta content="#191a1e" name="theme-color" />
-    <script src="js/preferences.js?v=1.1.5"></script>
+    <script src="js/preferences.js?v=1.1.6"></script>
     <title data-i18n="meta.title">Wryell Kenneth — Full-stack &amp; IA</title>
     <link href="imgs/WKM_CODE_logo.png" rel="icon" type="image/png" />
-    <link href="css/styles.css?v=1.1.5" rel="stylesheet" />
-    <link href="css/navigation.css?v=1.1.5" rel="stylesheet" />
-    <script defer="" src="js/i18n.js?v=1.1.5"></script>
-    <script defer="" src="js/site.js?v=1.1.5"></script>
-    <script defer="" src="js/navigation.js?v=1.1.5"></script>
+    <link href="css/styles.css?v=1.1.6" rel="stylesheet" />
+    <link href="css/navigation.css?v=1.1.6" rel="stylesheet" />
+    <script defer="" src="js/i18n.js?v=1.1.6"></script>
+    <script defer="" src="js/site.js?v=1.1.6"></script>
+    <script defer="" src="js/navigation.js?v=1.1.6"></script>
     <script defer="" src="js/vendor/gsap.min.js"></script>
     <script defer="" src="js/vendor/ScrollTrigger.min.js"></script>
-    <script defer="" src="js/motion.js?v=1.1.5"></script>
+    <script defer="" src="js/motion.js?v=1.1.6"></script>
   </head>
   <body>
-    <svg class="effect-definitions" aria-hidden="true" focusable="false" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="wkm-prism" x="-20%" y="-30%" width="140%" height="160%" color-interpolation-filters="sRGB">
-          <feColorMatrix in="SourceGraphic" type="saturate" values="0.35" result="silver" />
-          <feOffset in="silver" dx="1.4" dy="0.45" result="red-shift" />
-          <feColorMatrix in="red-shift" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="red" />
-          <feColorMatrix in="silver" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="green" />
-          <feOffset in="silver" dx="-1.4" dy="-0.45" result="blue-shift" />
-          <feColorMatrix in="blue-shift" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="blue" />
-          <feBlend in="red" in2="green" mode="screen" result="rg" />
-          <feBlend in="rg" in2="blue" mode="screen" result="spectrum" />
-          <feComponentTransfer in="spectrum">
-            <feFuncR type="linear" slope="0.35" intercept="0.85" />
-            <feFuncG type="linear" slope="0.9" intercept="0.29" />
-            <feFuncB type="linear" slope="0.9" intercept="0.29" />
-          </feComponentTransfer>
-        </filter>
-      </defs>
-    </svg>
     <div aria-hidden="true" class="reading-progress"></div>
     <a class="skip-link" data-i18n="skip" href="#conteudo"
       >Ir para o conteúdo</a
@@ -134,15 +115,15 @@
             aos testes e à experiência de quem usa.
           </p>
           <div class="actions">
-            <a class="button primary" data-i18n="hero.explore" href="#projetos"
-              >Explorar projetos ↗</a
+            <a class="button primary" href="#projetos"
+              ><span data-i18n="hero.explore">Explorar projetos</span> <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10" /></svg></a
             >
             <a
               class="button secondary"
               href="https://github.com/WKMcode-dev"
               rel="noopener noreferrer"
               target="_blank"
-              >GitHub <span aria-hidden="true">↗</span></a
+              >GitHub <span aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10" /></svg></span></a
             >
           </div>
           <div class="intro-footer">
@@ -154,7 +135,7 @@
         <aside aria-labelledby="cta-title" class="panel cta puzzle-card">
           <div class="panel-meta">
             <span data-i18n="creation">02 / CONSTRUÇÃO</span
-            ><span aria-hidden="true">↗</span>
+            ><span aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10" /></svg></span>
           </div>
           <img
             alt=""
@@ -177,8 +158,8 @@
             o problema, construir uma solução e melhorar a cada versão.
           </p>
           <div class="puzzle-slot">
-            <a class="button puzzle-button" data-i18n="cta.link" href="#sobre"
-              >Conheça meu trabalho ↓</a
+            <a class="button puzzle-button" href="#sobre"
+              ><span data-i18n="cta.link">Conheça meu trabalho</span> <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m-6-6 6 6 6-6" /></svg></a
             >
           </div>
           <div aria-hidden="true" class="cta-mark">
@@ -222,8 +203,8 @@
               resolver, reviso o resultado e verifico o comportamento antes de
               publicar.
             </p>
-            <a class="text-link" data-i18n="about.link" href="#projetos"
-              >Veja isso na prática ↓</a
+            <a class="text-link" href="#projetos"
+              ><span data-i18n="about.link">Veja isso na prática</span> <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m-6-6 6 6 6-6" /></svg></a
             >
           </article>
           <aside aria-labelledby="toolkit-title" class="panel toolkit">
@@ -280,11 +261,11 @@
           </div>
           <a
             class="text-link"
-            data-i18n="projects.all"
+
             href="https://github.com/WKMcode-dev?tab=repositories"
             rel="noopener noreferrer"
             target="_blank"
-            >Todos no GitHub ↗</a
+            ><span data-i18n="projects.all">Todos no GitHub</span> <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10" /></svg></a
           >
         </div>
         <div class="projects-grid">
@@ -520,18 +501,18 @@
         </div>
         <a
           class="button primary"
-          data-i18n="contact.link"
+
           href="https://github.com/WKMcode-dev"
           rel="noopener noreferrer"
           target="_blank"
-          >Encontrar WKMcode ↗</a
+          ><span data-i18n="contact.link">Encontrar WKMcode</span> <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10" /></svg></a
         >
       </section>
     </main>
     <footer class="site-footer container">
       <span>© 2026 WKMcode-dev</span
       ><span data-i18n="footer">CURIOSIDADE / CÓDIGO / EVOLUÇÃO</span
-      ><a data-i18n="top" href="#inicio">Voltar ao topo ↑</a>
+      ><a href="#inicio"><span data-i18n="top">Voltar ao topo</span> <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-6 6 6-6 6 6" /></svg></a>
     </footer>
     <dialog aria-labelledby="dialog-title" id="project-dialog">
       <div class="dialog-top">
@@ -549,11 +530,11 @@
       <p class="muted" id="dialog-description"></p>
       <a
         class="button primary"
-        data-i18n="dialog.link"
+
         id="dialog-link"
         rel="noopener noreferrer"
         target="_blank"
-        >Abrir repositório ↗</a
+        ><span data-i18n="dialog.link">Abrir repositório</span> <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10" /></svg></a
       >
     </dialog>
     <dialog
